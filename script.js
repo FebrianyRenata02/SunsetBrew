@@ -377,7 +377,7 @@ menuData.forEach(item => {
     img.src = item.image;
 
     img.className =
-        "w-full h-[220px] object-cover";
+        "w-full h-[120px] object-cover";
 
     const title = document.createElement("h3");
 
