@@ -449,6 +449,7 @@ promoContainer.className =
 const promoImg = document.createElement("img");
 
 promoImg.src =
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png",
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 
 promoImg.className =
