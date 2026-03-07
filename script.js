@@ -589,15 +589,15 @@ galleryTitle.className =
 galleryTitle.textContent = "Galery";
 
 
-// GRID
+// GRID (2 kolom HP, 4 kolom laptop)
 
 const galleryGrid = document.createElement("div");
 
 galleryGrid.className =
-    "grid md:grid-cols-3 gap-10";
+    "grid grid-cols-2 md:grid-cols-4 gap-10";
 
 
-// DATA IMAGE
+// DATA IMAGE (4 gambar)
 
 const galleryImages = [
 
@@ -605,7 +605,9 @@ const galleryImages = [
 
     "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
 
-    "https://images.unsplash.com/photo-1521017432531-fbd92d768814"
+    "https://images.unsplash.com/photo-1521017432531-fbd92d768814",
+
+    "https://images.unsplash.com/photo-1498804103079-a6351b050096"
 
 ];
 
@@ -619,7 +621,7 @@ galleryImages.forEach(src => {
     img.src = src;
 
     img.className =
-        "w-full h-[280px] object-cover rounded-lg shadow-md hover:scale-105 transition";
+        "w-full h-[260px] object-cover rounded-lg shadow-md hover:scale-105 transition duration-300";
 
     galleryGrid.appendChild(img);
 
