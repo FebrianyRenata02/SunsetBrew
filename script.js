@@ -255,7 +255,7 @@ aboutText.className =
 aboutText.innerHTML = `
 <p>
 <b>Sunset Brew</b> didirikan pada 20 October tahun 2025
-oleh <b>Febriany Renata</b> seorang CEO San Digital Agency.
+oleh <b>Febriany Renata</b> seorang CEO <b>San Digital Agency.</b>
 Toko tunggal yang menjual Kopi, Tea,
 Aneka Snack dan Kue.
 </p>
