@@ -1,0 +1,258 @@
+/* =================
+GLOBAL
+================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    }
+    
+    body{
+    background:#ead7c3;
+    font-family:sans-serif;
+    scroll-behavior:smooth;
+    }
+    
+    
+    
+    /* =================
+    FONT FIGMA
+    ================= */
+    
+    .title-font{
+    font-family:"Berkshire Swash",cursive;
+    }
+    
+    
+    
+    /* =================
+    NAVBAR LINK
+    ================= */
+    
+    .nav-link{
+    font-family:"Berkshire Swash",cursive;
+    font-size:18px;
+    transition:0.3s;
+    }
+    
+    .nav-link:hover{
+    color:#d97706;
+    }
+    
+    
+    
+    /* =================
+    HERO SECTION
+    ================= */
+    
+    .hero-overlay{
+    background:rgba(0,0,0,0.4);
+    }
+    
+    .hero-title{
+    letter-spacing:1px;
+    }
+    
+    
+    
+    /* =================
+    BUTTON GLOBAL
+    ================= */
+    
+    .btn-primary{
+    background:#f97316;
+    color:white;
+    padding:12px 28px;
+    border-radius:8px;
+    font-weight:600;
+    transition:0.3s;
+    }
+    
+    .btn-primary:hover{
+    background:#ea580c;
+    transform:scale(1.05);
+    }
+    
+    
+    
+    /* =================
+    MENU CARD
+    ================= */
+    
+    .menu-card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+    }
+    
+    .menu-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    .menu-card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    }
+    
+    
+    
+    /* =================
+    PROMO SECTION
+    ================= */
+    
+    .promo-section{
+    background:#e6c8a8;
+    }
+    
+    .promo-title{
+    font-size:32px;
+    }
+    
+    .promo-price{
+    font-size:40px;
+    font-weight:bold;
+    }
+    
+    
+    
+    /* =================
+    PROMO CARD
+    ================= */
+    
+    .promo-card{
+    overflow:hidden;
+    border-radius:10px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+    }
+    
+    .promo-card:hover{
+    transform:scale(1.05);
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    
+    
+    /* =================
+    GALERY SECTION
+    ================= */
+    
+    .gallery-img{
+    border-radius:10px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+    cursor:pointer;
+    }
+    
+    .gallery-img:hover{
+    transform:scale(1.05);
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    
+    
+    /* =================
+    RESPONSIVE
+    ================= */
+    
+    @media(max-width:768px){
+    
+    .hero-title{
+    font-size:40px;
+    }
+    
+    .menu-card img{
+    height:240px;
+    }
+    
+    }
+
+/* =================
+PRE FOOTER
+================= */
+
+.pre-footer{
+    background:#e8cdb1;
+    padding:70px 0;
+    }
+    
+    .pre-footer-container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:60px;
+    align-items:start;
+    }
+    
+    
+    /* BRAND */
+    
+    .pre-footer-brand{
+    font-size:30px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    }
+    
+    
+    /* QUICK LINKS */
+    
+    .pre-footer-title{
+    font-size:24px;
+    margin-bottom:18px;
+    }
+    
+    .pre-footer-links{
+    list-style:none;
+    padding:0;
+    }
+    
+    .pre-footer-links li{
+    margin-bottom:10px;
+    }
+    
+    .pre-footer-links a{
+    text-decoration:none;
+    color:#333;
+    font-size:16px;
+    transition:0.3s;
+    }
+    
+    .pre-footer-links a:hover{
+    color:#d97706;
+    }
+    
+    
+    /* MAP */
+    
+    .pre-footer-map{
+        width:100%;
+        height:250px;
+        border:0;
+        border-radius:10px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.2);
+        }
+    
+    
+    /* RESPONSIVE */
+    
+    @media(max-width:900px){
+    
+    .pre-footer-container{
+    grid-template-columns:1fr;
+    gap:40px;
+    text-align:center;
+    }
+    
+    .pre-footer-map{
+    margin:auto;
+    }
+    
+    }
