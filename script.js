@@ -462,7 +462,7 @@ promoImg1.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 
 promoImg1.className =
-"w-[130px] relative left-10 z-10";
+"w-[130px] relative left-10 z-10 hover:scale-105 transition duration-300";
 
 
 // IMAGE 2 (BIG CUP)
@@ -473,7 +473,7 @@ promoImg2.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 
 promoImg2.className =
-"w-[190px]";
+"w-[190px] hover:scale-105 transition duration-300";
 
 
 // APPEND IMAGE
