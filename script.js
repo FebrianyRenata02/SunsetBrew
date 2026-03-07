@@ -548,7 +548,7 @@ promoImages.forEach(imgSrc => {
     img.src = imgSrc;
 
     img.className =
-        "w-full h-[370px] object-cover";
+        "w-full h-[380px] object-cover";
 
     card.appendChild(img);
 
