@@ -527,7 +527,7 @@ promoCardsContainer.className =
 
 const promoImages = [
 
-    "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/free%20delivery!.png",
 
     "https://images.unsplash.com/photo-1498804103079-a6351b050096",
 
