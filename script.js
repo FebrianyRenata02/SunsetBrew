@@ -444,15 +444,40 @@ promoContainer.className =
     "max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center";
 
 
-// IMAGE
+// IMAGE CONTAINER
 
-const promoImg = document.createElement("img");
+const promoImgContainer = document.createElement("div");
 
-promoImg.src =
-    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png",
+promoImgContainer.className =
+"flex items-end gap-4 justify-center";
 
-promoImg.className =
-    "w-[320px] mx-auto";
+
+// IMAGE 1
+
+const promoImg1 = document.createElement("img");
+
+promoImg1.src =
+"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
+
+promoImg1.className =
+"w-[120px]";
+
+
+// IMAGE 2
+
+const promoImg2 = document.createElement("img");
+
+promoImg2.src =
+"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
+
+promoImg2.className =
+"w-[160px]";
+
+
+// APPEND IMAGE
+
+promoImgContainer.appendChild(promoImg1);
+promoImgContainer.appendChild(promoImg2);
 
 
 // TEXT
