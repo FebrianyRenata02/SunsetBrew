@@ -347,17 +347,17 @@ const menuData = [
 
     {
         name: "Coffee Latte",
-        image: "https://images.unsplash.com/photo-1498804103079-a6351b050096"
+        image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-1.png"
     },
 
     {
         name: "Matcha Latte",
-        image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7"
+        image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-2.png"
     },
 
     {
         name: "Strawberry Cream Frappe",
-        image: "https://images.unsplash.com/photo-1551024506-0bccd828d307"
+        image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-3.png"
     }
 
 ];
