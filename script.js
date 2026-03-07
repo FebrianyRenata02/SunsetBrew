@@ -135,7 +135,7 @@ hero.className =
     "relative h-[650px] flex items-center";
 
 hero.style.backgroundImage =
-    "url('https://images.unsplash.com/photo-1509042239860-f550ce710b93')";
+    "url('https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/banner.png')";
 
 hero.style.backgroundSize = "cover";
 hero.style.backgroundPosition = "center";
