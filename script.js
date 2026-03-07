@@ -267,8 +267,8 @@ teknologi berkembang makin canggih.
 </p>
 
 <p>
-Ia mendirikan usaha <b>San Digital Agency</b>
-usaha pendidikan seperti IT Developer,
+Ia mendirikan usaha <b>Class and Education</b>
+seperti IT Developer,
 Web Desainer, dll.
 </p>
 `;
