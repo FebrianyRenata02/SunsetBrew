@@ -601,13 +601,13 @@ galleryGrid.className =
 
 const galleryImages = [
 
-    "https://images.unsplash.com/photo-1559925393-8be0ec4767c8",
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-1.png",
 
-    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-2.png",
 
-    "https://images.unsplash.com/photo-1521017432531-fbd92d768814",
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-3.png",
 
-    "https://images.unsplash.com/photo-1498804103079-a6351b050096"
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-4.jpg"
 
 ];
 
