@@ -433,7 +433,7 @@ body.appendChild(menuSection);
 const promoSection = document.createElement("section");
 
 promoSection.className =
-    "bg-[#e6c8a8] py-20";
+"bg-[#e6c8a8] py-20";
 
 
 // CONTAINER
@@ -441,18 +441,20 @@ promoSection.className =
 const promoContainer = document.createElement("div");
 
 promoContainer.className =
-    "max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center";
+"max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center";
 
 
+// =================
 // IMAGE CONTAINER
+// =================
 
 const promoImgContainer = document.createElement("div");
 
 promoImgContainer.className =
-"flex items-end gap-4 justify-center";
+"flex justify-center items-end relative";
 
 
-// IMAGE 1
+// IMAGE 1 (SMALL CUP)
 
 const promoImg1 = document.createElement("img");
 
@@ -460,10 +462,10 @@ promoImg1.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 
 promoImg1.className =
-"w-[120px]";
+"w-[130px] relative left-10 z-10";
 
 
-// IMAGE 2
+// IMAGE 2 (BIG CUP)
 
 const promoImg2 = document.createElement("img");
 
@@ -471,7 +473,7 @@ promoImg2.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 
 promoImg2.className =
-"w-[160px]";
+"w-[190px]";
 
 
 // APPEND IMAGE
@@ -480,42 +482,58 @@ promoImgContainer.appendChild(promoImg1);
 promoImgContainer.appendChild(promoImg2);
 
 
+
+// =================
 // TEXT
+// =================
 
 const promoText = document.createElement("div");
+
+promoText.className = "space-y-4";
+
+
+// TITLE
 
 const promoTitle = document.createElement("h2");
 
 promoTitle.className =
-    "text-3xl title-font mb-6";
+"text-4xl title-font";
 
 promoTitle.textContent = "Promo";
 
 
+// DESCRIPTION
+
 const promoDesc = document.createElement("p");
 
 promoDesc.className =
-    "text-xl mb-4";
+"text-2xl font-semibold";
 
 promoDesc.textContent =
-    "Buy 1 (Medium) Get 1 (Venti) Free";
+"Buy 1 (Medium) Get 1 (Venti) Free";
 
+
+// PRICE
 
 const promoPrice = document.createElement("h3");
 
 promoPrice.className =
-    "text-4xl font-bold";
+"text-4xl font-bold";
 
 promoPrice.textContent = "30.000";
 
 
+// DRINK NAME
+
 const promoDrink = document.createElement("p");
 
 promoDrink.className =
-    "mt-6 text-xl font-semibold text-[#6b3410]";
+"text-xl font-semibold text-[#6b3410]";
 
 promoDrink.textContent = "Coffee Latte";
 
+
+// APPEND TEXT
 
 promoText.appendChild(promoTitle);
 promoText.appendChild(promoDesc);
@@ -523,15 +541,17 @@ promoText.appendChild(promoPrice);
 promoText.appendChild(promoDrink);
 
 
-// APPEND PROMO
 
-promoContainer.appendChild(promoImg);
+// =================
+// APPEND SECTION
+// =================
+
+promoContainer.appendChild(promoImgContainer);
 promoContainer.appendChild(promoText);
 
 promoSection.appendChild(promoContainer);
 
 body.appendChild(promoSection);
-
 
 
 // =================
