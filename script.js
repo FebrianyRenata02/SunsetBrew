@@ -347,7 +347,7 @@ const menuData = [
 
     {
         name: "Coffee Latte",
-        image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-1.png"
+        image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-1.png" width=340px
     },
 
     {
