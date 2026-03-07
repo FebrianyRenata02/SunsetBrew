@@ -529,9 +529,9 @@ const promoImages = [
 
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/free%20delivery!.png",
 
-    "https://images.unsplash.com/photo-1498804103079-a6351b050096",
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/paket%20hemat.png",
 
-    "https://images.unsplash.com/photo-1551024506-0bccd828d307"
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/Untitled%20(21).png"
 
 ];
 
