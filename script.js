@@ -308,7 +308,7 @@ body.appendChild(aboutSection);
 // COFFEE DECORATION
 // =================
 
-const coffeeDecor = document.createElement("https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/biji-kopi.png");
+const coffeeDecor = document.createElement("img");
 
 coffeeDecor.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/coffee-beans.png";
@@ -323,7 +323,6 @@ coffeeDecor.style.opacity = "0.9";
 aboutSection.style.position = "relative";
 
 aboutSection.appendChild(coffeeDecor);
-
 
 // =================
 // MENU SECTION
