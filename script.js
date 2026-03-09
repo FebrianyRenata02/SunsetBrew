@@ -789,3 +789,4 @@ preFooterContainer.appendChild(locationColumn);
 preFooter.appendChild(preFooterContainer);
 
 body.appendChild(preFooter);
+
