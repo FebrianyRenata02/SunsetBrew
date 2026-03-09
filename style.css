@@ -54,7 +54,36 @@ GLOBAL
     letter-spacing:1px;
     }
     
-    
+    /* =================
+PROMO IMAGE
+================= */
+
+.promo-img-container{
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+height:320px;
+}
+
+.promo-img-small{
+width:220px;
+position:absolute;
+left:90px;
+z-index:2;
+}
+
+.promo-img-big{
+width:260px;
+}
+
+.promo-img-container img{
+transition:0.3s;
+}
+
+.promo-img-container img:hover{
+transform:scale(1.08);
+}
     
     /* =================
     BUTTON GLOBAL
