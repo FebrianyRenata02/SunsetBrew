@@ -433,7 +433,7 @@ body.appendChild(menuSection);
 const promoSection = document.createElement("section");
 
 promoSection.className =
-"bg-[#e6c8a8] py-20";
+"bg-[#e6c8a8] py-24";
 
 
 // CONTAINER
@@ -441,7 +441,7 @@ promoSection.className =
 const promoContainer = document.createElement("div");
 
 promoContainer.className =
-"max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center";
+"max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center";
 
 
 // =================
@@ -451,10 +451,10 @@ promoContainer.className =
 const promoImgContainer = document.createElement("div");
 
 promoImgContainer.className =
-"flex justify-center items-end relative";
+"relative flex justify-center items-center";
 
 
-// IMAGE 1 (SMALL CUP)
+// IMAGE 1
 
 const promoImg1 = document.createElement("img");
 
@@ -462,10 +462,10 @@ promoImg1.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 
 promoImg1.className =
-"w-[130px] relative left-10 z-10 hover:scale-105 transition duration-300";
+"w-[240px] relative left-20 hover:scale-105 transition duration-300";
 
 
-// IMAGE 2 (BIG CUP)
+// IMAGE 2
 
 const promoImg2 = document.createElement("img");
 
@@ -473,7 +473,7 @@ promoImg2.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 
 promoImg2.className =
-"w-[190px] hover:scale-105 transition duration-300";
+"w-[240px] absolute hover:scale-105 transition duration-300";
 
 
 // APPEND IMAGE
@@ -489,7 +489,8 @@ promoImgContainer.appendChild(promoImg2);
 
 const promoText = document.createElement("div");
 
-promoText.className = "space-y-4";
+promoText.className =
+"text-center md:text-left space-y-6";
 
 
 // TITLE
@@ -497,7 +498,7 @@ promoText.className = "space-y-4";
 const promoTitle = document.createElement("h2");
 
 promoTitle.className =
-"text-4xl title-font";
+"text-5xl title-font";
 
 promoTitle.textContent = "Promo";
 
@@ -507,10 +508,10 @@ promoTitle.textContent = "Promo";
 const promoDesc = document.createElement("p");
 
 promoDesc.className =
-"text-2xl font-semibold";
+"text-3xl font-semibold";
 
-promoDesc.textContent =
-"Buy 1 (Medium) Get 1 (Venti) Free";
+promoDesc.innerHTML =
+"Buy 1 (Medium) Get 1 (Venti) <br> Free";
 
 
 // PRICE
@@ -518,17 +519,17 @@ promoDesc.textContent =
 const promoPrice = document.createElement("h3");
 
 promoPrice.className =
-"text-4xl font-bold";
+"text-6xl font-bold";
 
 promoPrice.textContent = "30.000";
 
 
-// DRINK NAME
+// DRINK
 
 const promoDrink = document.createElement("p");
 
 promoDrink.className =
-"text-xl font-semibold text-[#6b3410]";
+"text-3xl font-semibold text-[#6b3410]";
 
 promoDrink.textContent = "Coffee Latte";
 
@@ -552,7 +553,6 @@ promoContainer.appendChild(promoText);
 promoSection.appendChild(promoContainer);
 
 body.appendChild(promoSection);
-
 
 // =================
 // PROMO CARDS
