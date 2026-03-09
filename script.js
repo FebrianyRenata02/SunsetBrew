@@ -393,14 +393,16 @@ body.appendChild(menuSection);
 // =================
 
 const promoSection = document.createElement("section");
-promoSection.className = "bg-[#e6c8a8] py-24";
+promoSection.className = "bg-[#ead7c3] py-20";
 
 const promoContainer = document.createElement("div");
 promoContainer.className =
 "max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center";
 
 
-// IMAGE
+// =================
+// IMAGE CONTAINER
+// =================
 
 const promoImgContainer = document.createElement("div");
 promoImgContainer.className =
@@ -410,19 +412,21 @@ const promoImg1 = document.createElement("img");
 promoImg1.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 promoImg1.className =
-"w-[240px] relative left-20 hover:scale-105 transition";
+"w-[240px] relative left-20 hover:scale-105 transition duration-300";
 
 const promoImg2 = document.createElement("img");
 promoImg2.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
 promoImg2.className =
-"w-[240px] absolute hover:scale-105 transition";
+"w-[240px] absolute hover:scale-105 transition duration-300";
 
 promoImgContainer.appendChild(promoImg1);
 promoImgContainer.appendChild(promoImg2);
 
 
+// =================
 // TEXT
+// =================
 
 const promoText = document.createElement("div");
 promoText.className =
@@ -455,7 +459,9 @@ promoText.appendChild(promoPrice);
 promoText.appendChild(promoDrink);
 
 
+// =================
 // APPEND
+// =================
 
 promoContainer.appendChild(promoImgContainer);
 promoContainer.appendChild(promoText);
