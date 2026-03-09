@@ -59,30 +59,55 @@ PROMO IMAGE
 ================= */
 
 .promo-img-container{
-position:relative;
 display:flex;
-justify-content:center;
 align-items:center;
-height:320px;
-}
-
-.promo-img-small{
-width:220px;
-position:absolute;
-left:90px;
-z-index:2;
-}
-
-.promo-img-big{
-width:260px;
+justify-content:center;
+gap:-40px;
 }
 
 .promo-img-container img{
+width:200px;
 transition:0.3s;
 }
 
+.promo-img-container img:first-child{
+transform:translateX(30px);
+z-index:2;
+}
+
+.promo-img-container img:last-child{
+transform:translateX(-30px);
+}
+
 .promo-img-container img:hover{
-transform:scale(1.08);
+transform:scale(1.05);
+}
+
+/* =================
+PROMO TEXT
+================= */
+
+.promo-title{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.promo-desc{
+font-size:18px;
+margin-bottom:15px;
+font-weight:600;
+}
+
+.promo-price{
+font-size:34px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.promo-drink{
+font-size:20px;
+color:#7c3f00;
+font-weight:600;
 }
     
     /* =================
