@@ -304,6 +304,26 @@ aboutSection.appendChild(aboutContainer);
 
 body.appendChild(aboutSection);
 
+// =================
+// COFFEE DECORATION
+// =================
+
+const coffeeDecor = document.createElement("img");
+
+coffeeDecor.src =
+"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/coffee-beans.png";
+
+coffeeDecor.style.position = "absolute";
+coffeeDecor.style.right = "-80px";
+coffeeDecor.style.bottom = "-60px";
+coffeeDecor.style.width = "350px";
+coffeeDecor.style.pointerEvents = "none";
+coffeeDecor.style.opacity = "0.9";
+
+aboutSection.style.position = "relative";
+
+aboutSection.appendChild(coffeeDecor);
+
 
 // =================
 // MENU SECTION
