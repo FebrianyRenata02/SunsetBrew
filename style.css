@@ -107,19 +107,18 @@ PROMO TEXT
 ================= */
 
 .promo-title{
-font-size:30px;
-margin-bottom:15px;
+font-size:28px;
+margin-bottom:10px;
 }
 
 .promo-desc{
 font-size:18px;
 margin-bottom:15px;
 font-weight:600;
-line-height:1.4;
 }
 
 .promo-price{
-font-size:36px;
+font-size:34px;
 font-weight:bold;
 margin-bottom:10px;
 }
@@ -129,7 +128,6 @@ font-size:20px;
 color:#7c3f00;
 font-weight:600;
 }
-
 
 /* =================
 BUTTON GLOBAL
