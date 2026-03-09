@@ -393,7 +393,7 @@ body.appendChild(menuSection);
 // =================
 
 const promoSection = document.createElement("section");
-promoSection.className = "promo-section py-24";
+promoSection.className = "bg-[#e6c8a8] py-24";
 
 const promoContainer = document.createElement("div");
 promoContainer.className =
@@ -403,47 +403,50 @@ promoContainer.className =
 // IMAGE
 
 const promoImgContainer = document.createElement("div");
-promoImgContainer.className = "promo-img-container";
+promoImgContainer.className =
+"relative flex justify-center items-center";
 
-const promoImages = [
-"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png",
-"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png"
-];
+const promoImg1 = document.createElement("img");
+promoImg1.src =
+"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
+promoImg1.className =
+"w-[240px] relative left-20 hover:scale-105 transition";
 
-promoImages.forEach((src,i)=>{
+const promoImg2 = document.createElement("img");
+promoImg2.src =
+"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
+promoImg2.className =
+"w-[240px] absolute hover:scale-105 transition";
 
-const img = document.createElement("img");
-img.src = src;
-
-img.className =
-i === 0
-? "w-[240px] relative left-20"
-: "w-[240px] absolute";
-
-promoImgContainer.appendChild(img);
-
-});
+promoImgContainer.appendChild(promoImg1);
+promoImgContainer.appendChild(promoImg2);
 
 
 // TEXT
 
 const promoText = document.createElement("div");
-promoText.className = "space-y-6 text-center md:text-left";
+promoText.className =
+"text-center md:text-left space-y-6";
 
 const promoTitle = document.createElement("h2");
-promoTitle.className = "promo-title title-font";
+promoTitle.className =
+"text-5xl title-font";
 promoTitle.textContent = "Promo";
 
 const promoDesc = document.createElement("p");
-promoDesc.className = "text-3xl font-semibold";
-promoDesc.innerHTML = "Buy 1 (Medium) Get 1 (Venti) <br> Free";
+promoDesc.className =
+"text-3xl font-semibold";
+promoDesc.innerHTML =
+"Buy 1 (Medium) Get 1 (Venti) <br> Free";
 
 const promoPrice = document.createElement("h3");
-promoPrice.className = "promo-price";
+promoPrice.className =
+"text-6xl font-bold";
 promoPrice.textContent = "30.000";
 
 const promoDrink = document.createElement("p");
-promoDrink.className = "text-3xl font-semibold text-[#6b3410]";
+promoDrink.className =
+"text-3xl font-semibold text-[#6b3410]";
 promoDrink.textContent = "Coffee Latte";
 
 promoText.appendChild(promoTitle);
@@ -460,14 +463,6 @@ promoContainer.appendChild(promoText);
 promoSection.appendChild(promoContainer);
 
 body.appendChild(promoSection);
-
-// CONTAINER
-
-const promoContainer = document.createElement("div");
-
-promoContainer.className =
-"max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center";
-
 
 // =================
 // IMAGE CONTAINER
