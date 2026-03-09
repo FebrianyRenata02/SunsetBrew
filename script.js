@@ -308,7 +308,7 @@ body.appendChild(aboutSection);
 // COFFEE DECORATION
 // =================
 
-const coffeeDecor = document.createElement("img");
+const coffeeDecor = document.createElement("https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/biji-kopi.png");
 
 coffeeDecor.src =
 "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/coffee-beans.png";
