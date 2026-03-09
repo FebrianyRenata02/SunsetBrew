@@ -107,25 +107,25 @@ PROMO TEXT
 ================= */
 
 .promo-title{
-font-size:24px;
+font-size:24px !important;
 margin-bottom:8px;
 }
 
 .promo-desc{
-font-size:14px;
+font-size:14px !important;
 margin-bottom:12px;
 font-weight:600;
 line-height:1.4;
 }
 
 .promo-price{
-font-size:28px;
+font-size:28px !important;
 font-weight:bold;
 margin-bottom:8px;
 }
 
 .promo-drink{
-font-size:16px;
+font-size:16px !important;
 color:#7c3f00;
 font-weight:600;
 }
