@@ -304,85 +304,123 @@ aboutSection.appendChild(aboutContainer);
 
 body.appendChild(aboutSection);
 
+
 // =================
 // MENU SECTION
 // =================
 
 const menuSection = document.createElement("section");
-menuSection.className = "bg-[#ead7c3] py-20";
+
+menuSection.className =
+    "bg-[#ead7c3] py-20";
+
+
+// CONTAINER
 
 const menuContainer = document.createElement("div");
-menuContainer.className = "max-w-7xl mx-auto px-6";
+
+menuContainer.className =
+    "max-w-7xl mx-auto px-6";
+
+
+// TITLE
 
 const menuTitle = document.createElement("h2");
-menuTitle.className = "text-4xl title-font text-center mb-16";
+
+menuTitle.className =
+    "text-4xl title-font text-center mb-16";
+
 menuTitle.textContent = "Menu";
 
+
+// GRID
+
 const menuGrid = document.createElement("div");
-menuGrid.className = "grid md:grid-cols-3 gap-10";
+
+menuGrid.className =
+    "grid md:grid-cols-3 gap-10";
 
 
 // DATA MENU
 
 const menuData = [
-{
-name: "Coffee Latte",
-image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-1.png"
-},
-{
-name: "Matcha Latte",
-image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-2.png"
-},
-{
-name: "Strawberry Cream Frappe",
-image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-3.png"
-}
+
+    {
+        name: "Coffee Latte",
+        image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-1.png"
+    },
+
+    {
+        name: "Matcha Latte",
+        image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-2.png"
+    },
+
+    {
+        name: "Strawberry Cream Frappe",
+        image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-3.png"
+    }
+
 ];
 
 
-// LOOP MENU
+// LOOP MENU CARD
 
-menuData.forEach(menu => {
+menuData.forEach(item => {
 
-const card = document.createElement("div");
-card.className = "menu-card";
+    const card = document.createElement("div");
 
-const img = document.createElement("img");
-img.src = menu.image;
+    card.className =
+        "bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition";
 
-const title = document.createElement("h3");
-title.className = "text-xl font-semibold text-center py-5";
-title.textContent = menu.name;
+    const img = document.createElement("img");
 
-card.appendChild(img);
-card.appendChild(title);
+    img.src = item.image;
 
-menuGrid.appendChild(card);
+    img.className =
+        "w-full h-[360px] object-cover";
+
+    const title = document.createElement("h3");
+
+    title.className =
+        "text-xl font-semibold text-center py-5";
+
+    title.textContent = item.name;
+
+    card.appendChild(img);
+    card.appendChild(title);
+
+    menuGrid.appendChild(card);
 
 });
 
 
 // BUTTON MENU
 
-const menuBtnWrap = document.createElement("div");
-menuBtnWrap.className = "text-center mt-12";
+const menuBtnContainer = document.createElement("div");
+
+menuBtnContainer.className =
+    "text-center mt-12";
+
 
 const ourMenuBtn = document.createElement("button");
-ourMenuBtn.className = "btn-primary";
+
+ourMenuBtn.className =
+    "bg-[#6b3410] text-white px-8 py-3 rounded-full hover:bg-[#4a2207] transition";
+
 ourMenuBtn.textContent = "Our Menu";
 
-ourMenuBtn.onclick = () => {
-alert("Detailed Menu Coming Soon ☕");
-};
+ourMenuBtn.addEventListener("click", () => {
+    alert("Detailed Menu Coming Soon. ☕");
+});
 
-menuBtnWrap.appendChild(ourMenuBtn);
+menuBtnContainer.appendChild(ourMenuBtn);
 
 
-// APPEND
+// APPEND MENU
 
 menuContainer.appendChild(menuTitle);
 menuContainer.appendChild(menuGrid);
-menuContainer.appendChild(menuBtnWrap);
+menuContainer.appendChild(menuBtnContainer);
 
 menuSection.appendChild(menuContainer);
 
@@ -461,116 +499,6 @@ promoText.appendChild(promoDrink);
 
 // =================
 // APPEND
-// =================
-
-promoContainer.appendChild(promoImgContainer);
-promoContainer.appendChild(promoText);
-
-promoSection.appendChild(promoContainer);
-
-body.appendChild(promoSection);
-
-// =================
-// IMAGE CONTAINER
-// =================
-
-const promoImgContainer = document.createElement("div");
-
-promoImgContainer.className =
-"relative flex justify-center items-center";
-
-
-// IMAGE 1
-
-const promoImg1 = document.createElement("img");
-
-promoImg1.src =
-"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
-
-promoImg1.className =
-"w-[240px] relative left-20 hover:scale-105 transition duration-300";
-
-
-// IMAGE 2
-
-const promoImg2 = document.createElement("img");
-
-promoImg2.src =
-"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
-
-promoImg2.className =
-"w-[240px] absolute hover:scale-105 transition duration-300";
-
-
-// APPEND IMAGE
-
-promoImgContainer.appendChild(promoImg1);
-promoImgContainer.appendChild(promoImg2);
-
-
-
-// =================
-// TEXT
-// =================
-
-const promoText = document.createElement("div");
-
-promoText.className =
-"text-center md:text-left space-y-6";
-
-
-// TITLE
-
-const promoTitle = document.createElement("h2");
-
-promoTitle.className =
-"text-5xl title-font";
-
-promoTitle.textContent = "Promo";
-
-
-// DESCRIPTION
-
-const promoDesc = document.createElement("p");
-
-promoDesc.className =
-"text-3xl font-semibold";
-
-promoDesc.innerHTML =
-"Buy 1 (Medium) Get 1 (Venti) <br> Free";
-
-
-// PRICE
-
-const promoPrice = document.createElement("h3");
-
-promoPrice.className =
-"text-6xl font-bold";
-
-promoPrice.textContent = "30.000";
-
-
-// DRINK
-
-const promoDrink = document.createElement("p");
-
-promoDrink.className =
-"text-3xl font-semibold text-[#6b3410]";
-
-promoDrink.textContent = "Coffee Latte";
-
-
-// APPEND TEXT
-
-promoText.appendChild(promoTitle);
-promoText.appendChild(promoDesc);
-promoText.appendChild(promoPrice);
-promoText.appendChild(promoDrink);
-
-
-
-// =================
-// APPEND SECTION
 // =================
 
 promoContainer.appendChild(promoImgContainer);
