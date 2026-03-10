@@ -156,11 +156,11 @@ hero.style.backgroundPosition = "center";
 const overlay = document.createElement("div");
 overlay.className = "absolute inset-0 bg-black/40";
 
-const heroContent = document.createElement("div");
-heroContent.className = "max-w-xl relative z-10";
+const heroContainer = document.createElement("div");
+heroContainer.className = "max-w-7xl mx-auto px-6 w-full";
 
 const heroContent = document.createElement("div");
-heroContent.className = "max-w-xl";
+heroContent.className = "max-w-xl relative z-10";
 
 const heroTitle = document.createElement("h1");
 heroTitle.className =
