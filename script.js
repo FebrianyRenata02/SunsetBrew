@@ -48,6 +48,36 @@ navItems.forEach(item => {
 
     a.className = "hover:text-orange-600 transition";
 
+    a.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        if (item === "Home") {
+            document.getElementById("home-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "About") {
+            document.getElementById("about-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "Menu") {
+            document.getElementById("menu-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "Galery") {
+            document.getElementById("gallery-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+    });
+
     li.appendChild(a);
     desktopMenu.appendChild(li);
 
@@ -79,7 +109,33 @@ navItems.forEach(item => {
     a.className =
         "block text-center py-4 border-b border-[#d6bfa6] hover:bg-orange-100 transition";
 
-    a.addEventListener("click", () => {
+    a.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        if (item === "Home") {
+            document.getElementById("home-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "About") {
+            document.getElementById("about-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "Menu") {
+            document.getElementById("menu-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "Galery") {
+            document.getElementById("gallery-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
 
         mobileMenu.style.maxHeight = "0px";
         menuBtn.innerHTML = "☰";
@@ -143,6 +199,7 @@ body.appendChild(nav);
 // =================
 
 const hero = document.createElement("section");
+hero.id = "home-section";
 
 hero.className =
     "relative h-[500px] md:h-[600px] lg:h-[650px] flex items-center";
@@ -221,7 +278,6 @@ aboutText.className =
     "text-gray-800 leading-relaxed space-y-6";
 
 aboutText.innerHTML = `
-
 <p>
 <b>Sunset Brew</b> didirikan pada 20 October tahun 2025
 oleh <b>Febriany Renata</b> seorang CEO <b>San Digital Agency.</b>
@@ -348,6 +404,7 @@ body.appendChild(menuSection);
 // =================
 
 const gallerySection = document.createElement("section");
+gallerySection.id = "gallery-section";
 gallerySection.className = "bg-[#ead7c3] py-20";
 
 const galleryContainer = document.createElement("div");
@@ -448,6 +505,36 @@ footerLinks.forEach(link => {
 
     a.className = "hover:text-orange-600 transition";
 
+    a.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        if (link === "Home") {
+            document.getElementById("home-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (link === "About") {
+            document.getElementById("about-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (link === "Menu") {
+            document.getElementById("menu-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (link === "Galery") {
+            document.getElementById("gallery-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+    });
+
     li.appendChild(a);
     linksList.appendChild(li);
 
@@ -479,7 +566,7 @@ map.className = "rounded-md shadow-md";
 locationColumn.appendChild(locationTitle);
 locationColumn.appendChild(map);
 
-// APPEND FOOTER
+// APPEND
 
 preFooterContainer.appendChild(brandColumn);
 preFooterContainer.appendChild(linksColumn);
