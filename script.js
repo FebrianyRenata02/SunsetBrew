@@ -1,62 +1,41 @@
 const body = document.body;
 
-
 // =================
 // TOP BAR
 // =================
 
 const topBar = document.createElement("div");
-
-topBar.className =
-    "bg-[#6b3410] text-white text-center py-2 text-sm";
-
+topBar.className = "bg-[#6b3410] text-white text-center py-2 text-sm";
 topBar.textContent = "The Best of Coffee Shop";
-
 body.appendChild(topBar);
-
 
 // =================
 // NAVBAR
 // =================
 
 const nav = document.createElement("nav");
-
-nav.className =
-    "bg-[#ead7c3] shadow-md";
+nav.className = "bg-[#ead7c3] shadow-md sticky top-0 z-50";
 
 const navContainer = document.createElement("div");
-
 navContainer.className =
     "max-w-7xl mx-auto px-6 py-4 flex justify-between items-center";
-
 
 // LOGO
 
 const logo = document.createElement("h1");
-
-logo.className =
-    "text-2xl title-font flex gap-2 items-center";
-
+logo.className = "text-2xl title-font flex gap-2 items-center";
 logo.textContent = "☕ Sunset Brew";
-
 
 // NAV ITEMS
 
 const navItems = [
-    "Home",
-    "About",
-    "Menu",
-    "Promo",
-    "Galery",
-    "Contact",
-    "Our Team"
+    "Home", "About", "Menu", "Promo", "Galery", "Contact", "Our Team"
 ];
 
+// DESKTOP MENU
 
-const menu = document.createElement("ul");
-
-menu.className =
-    "hidden md:flex gap-8 title-font text-lg";
+const desktopMenu = document.createElement("ul");
+desktopMenu.className = "hidden md:flex gap-8 title-font text-lg";
 
 navItems.forEach(item => {
 
@@ -65,65 +44,99 @@ navItems.forEach(item => {
     const a = document.createElement("a");
 
     a.textContent = item;
-
     a.href = "#";
 
-    a.className =
-        "hover:text-orange-600 transition";
+    a.className = "hover:text-orange-600 transition";
 
     li.appendChild(a);
-
-    menu.appendChild(li);
+    desktopMenu.appendChild(li);
 
 });
-
 
 // MOBILE BUTTON
 
 const menuBtn = document.createElement("button");
-
-menuBtn.className =
-    "md:hidden text-2xl";
-
-menuBtn.textContent = "☰";
-
+menuBtn.className = "md:hidden text-2xl transition";
+menuBtn.innerHTML = "☰";
 
 // MOBILE MENU
 
 const mobileMenu = document.createElement("div");
-
 mobileMenu.className =
-    "hidden flex-col items-center gap-4 pb-6 md:hidden title-font";
+    "flex flex-col bg-[#ead7c3] w-full border-t overflow-hidden md:hidden transition-all duration-500";
+
+mobileMenu.style.maxHeight = "0px";
+
+// MOBILE ITEMS
 
 navItems.forEach(item => {
 
     const a = document.createElement("a");
 
     a.textContent = item;
-
     a.href = "#";
+
+    a.className =
+        "block text-center py-4 border-b border-[#d6bfa6] hover:bg-orange-100 transition";
+
+    a.addEventListener("click", () => {
+
+        mobileMenu.style.maxHeight = "0px";
+        menuBtn.innerHTML = "☰";
+        menuOpen = false;
+
+    });
 
     mobileMenu.appendChild(a);
 
 });
 
+// TOGGLE MENU
+
+let menuOpen = false;
 
 menuBtn.addEventListener("click", () => {
 
-    mobileMenu.classList.toggle("hidden");
+    menuOpen = !menuOpen;
+
+    if (menuOpen) {
+
+        mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+        menuBtn.innerHTML = "✕";
+
+    } else {
+
+        mobileMenu.style.maxHeight = "0px";
+        menuBtn.innerHTML = "☰";
+
+    }
 
 });
 
+// AUTO RESET
+
+window.addEventListener("resize", () => {
+
+    if (window.innerWidth >= 768) {
+
+        mobileMenu.style.maxHeight = "0px";
+        menuBtn.innerHTML = "☰";
+        menuOpen = false;
+
+    }
+
+});
+
+// APPEND NAVBAR
 
 navContainer.appendChild(logo);
-navContainer.appendChild(menu);
+navContainer.appendChild(desktopMenu);
 navContainer.appendChild(menuBtn);
 
 nav.appendChild(navContainer);
 nav.appendChild(mobileMenu);
 
 body.appendChild(nav);
-
 
 // =================
 // HERO SECTION
@@ -132,7 +145,7 @@ body.appendChild(nav);
 const hero = document.createElement("section");
 
 hero.className =
-    "relative h-[650px] flex items-center";
+    "relative h-[500px] md:h-[600px] lg:h-[650px] flex items-center";
 
 hero.style.backgroundImage =
     "url('https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/banner.png')";
@@ -140,48 +153,25 @@ hero.style.backgroundImage =
 hero.style.backgroundSize = "cover";
 hero.style.backgroundPosition = "center";
 
-
-// OVERLAY
-
 const overlay = document.createElement("div");
-
-overlay.className =
-    "absolute inset-0 bg-black/40 pointer-events-none";
-
-
-// HERO CONTAINER
+overlay.className = "absolute inset-0 bg-black/40";
 
 const heroContainer = document.createElement("div");
-
-heroContainer.className =
-    "max-w-7xl mx-auto px-6 w-full";
-
-
-// HERO CONTENT
+heroContainer.className = "max-w-7xl mx-auto px-6 w-full";
 
 const heroContent = document.createElement("div");
-
-heroContent.className =
-    "max-w-xl";
-
-
-// HERO TITLE
+heroContent.className = "max-w-xl";
 
 const heroTitle = document.createElement("h1");
-
 heroTitle.className =
-    "text-white text-6xl md:text-7xl title-font leading-tight mb-6";
+    "text-white text-4xl md:text-6xl lg:text-7xl title-font leading-tight mb-6";
 
-heroTitle.innerHTML =
-    "brewed to <br> perfection";
-
-
-// BUTTON ORDER NOW
+heroTitle.innerHTML = "brewed to <br> perfection";
 
 const orderBtn = document.createElement("button");
 
 orderBtn.className =
-    "bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition hover:scale-105";
+    "bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 rounded-lg font-semibold transition hover:scale-105";
 
 orderBtn.textContent = "Order Now";
 
@@ -193,9 +183,6 @@ orderBtn.addEventListener("click", () => {
 
 });
 
-
-// APPEND HERO
-
 heroContent.appendChild(heroTitle);
 heroContent.appendChild(orderBtn);
 
@@ -206,7 +193,6 @@ hero.appendChild(heroContainer);
 
 body.appendChild(hero);
 
-
 // =================
 // ABOUT SECTION
 // =================
@@ -214,38 +200,20 @@ body.appendChild(hero);
 const aboutSection = document.createElement("section");
 
 aboutSection.id = "about-section";
-
-aboutSection.className =
-    "bg-[#ead7c3] py-20";
-
-
-// CONTAINER
+aboutSection.className = "bg-[#ead7c3] py-20";
 
 const aboutContainer = document.createElement("div");
-
-aboutContainer.className =
-    "max-w-7xl mx-auto px-6";
-
-
-// TITLE
+aboutContainer.className = "max-w-7xl mx-auto px-6";
 
 const aboutTitle = document.createElement("h2");
-
 aboutTitle.className =
-    "text-4xl title-font text-center mb-16";
-
+    "text-3xl md:text-4xl title-font text-center mb-16";
 aboutTitle.textContent = "About";
-
-
-// GRID
 
 const aboutGrid = document.createElement("div");
 
 aboutGrid.className =
-    "grid md:grid-cols-2 gap-12 items-center";
-
-
-// TEXT
+    "grid grid-cols-1 md:grid-cols-2 gap-10 items-center";
 
 const aboutText = document.createElement("div");
 
@@ -253,28 +221,21 @@ aboutText.className =
     "text-gray-800 leading-relaxed space-y-6";
 
 aboutText.innerHTML = `
+
 <p>
 <b>Sunset Brew</b> didirikan pada 20 October tahun 2025
 oleh <b>Febriany Renata</b> seorang CEO <b>San Digital Agency.</b>
-Toko tunggal yang menjual Kopi, Tea,
-Aneka Snack dan Kue.
 </p>
 
 <p>
-Awal nya Sunset Brew sendiri di bangun hanya untuk
-teman nongkrong dan ngopi, seiring berjalan nya waktu
-teknologi berkembang makin canggih.
+Awalnya Sunset Brew dibangun sebagai tempat nongkrong dan ngopi.
 </p>
 
 <p>
-Ia mendirikan usaha <b>Class and Education</b>
-seperti IT Developer,
-Web Desainer, dll.
+Kini berkembang menjadi usaha edukasi seperti IT Developer,
+Web Designer, dan bidang teknologi lainnya.
 </p>
 `;
-
-
-// IMAGE
 
 const aboutImageContainer = document.createElement("div");
 
@@ -283,19 +244,12 @@ const aboutImg = document.createElement("img");
 aboutImg.src =
     "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085";
 
-aboutImg.className =
-    "rounded-lg shadow-lg";
+aboutImg.className = "rounded-lg shadow-lg w-full";
 
 aboutImageContainer.appendChild(aboutImg);
 
-
-// APPEND GRID
-
 aboutGrid.appendChild(aboutText);
 aboutGrid.appendChild(aboutImageContainer);
-
-
-// APPEND ABOUT
 
 aboutContainer.appendChild(aboutTitle);
 aboutContainer.appendChild(aboutGrid);
@@ -305,62 +259,21 @@ aboutSection.appendChild(aboutContainer);
 body.appendChild(aboutSection);
 
 // =================
-// COFFEE DECORATION
-// =================
-
-const coffeeDecor = document.createElement("img");
-
-coffeeDecor.src =
-"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/coffee-beans.png";
-
-coffeeDecor.style.position = "absolute";
-coffeeDecor.style.right = "-80px";
-coffeeDecor.style.bottom = "-60px";
-coffeeDecor.style.width = "350px";
-coffeeDecor.style.pointerEvents = "none";
-coffeeDecor.style.opacity = "0.9";
-
-aboutSection.style.position = "relative";
-
-aboutSection.appendChild(coffeeDecor);
-
-// =================
 // MENU SECTION
 // =================
 
 const menuSection = document.createElement("section");
-
-menuSection.className =
-    "bg-[#ead7c3] py-20";
-
-
-// CONTAINER
+menuSection.className = "bg-[#ead7c3] py-20";
 
 const menuContainer = document.createElement("div");
-
-menuContainer.className =
-    "max-w-7xl mx-auto px-6";
-
-
-// TITLE
+menuContainer.className = "max-w-7xl mx-auto px-6";
 
 const menuTitle = document.createElement("h2");
-
-menuTitle.className =
-    "text-4xl title-font text-center mb-16";
-
+menuTitle.className = "text-4xl title-font text-center mb-16";
 menuTitle.textContent = "Menu";
 
-
-// GRID
-
 const menuGrid = document.createElement("div");
-
-menuGrid.className =
-    "grid md:grid-cols-3 gap-10";
-
-
-// DATA MENU
+menuGrid.className = "grid md:grid-cols-3 gap-10";
 
 const menuData = [
 
@@ -381,9 +294,6 @@ const menuData = [
 
 ];
 
-
-// LOOP MENU CARD
-
 menuData.forEach(item => {
 
     const card = document.createElement("div");
@@ -392,17 +302,11 @@ menuData.forEach(item => {
         "bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition";
 
     const img = document.createElement("img");
-
     img.src = item.image;
-
-    img.className =
-        "w-full h-[360px] object-cover";
+    img.className = "w-full h-[360px] object-cover";
 
     const title = document.createElement("h3");
-
-    title.className =
-        "text-xl font-semibold text-center py-5";
-
+    title.className = "text-xl font-semibold text-center py-5";
     title.textContent = item.name;
 
     card.appendChild(img);
@@ -412,14 +316,8 @@ menuData.forEach(item => {
 
 });
 
-
-// BUTTON MENU
-
 const menuBtnContainer = document.createElement("div");
-
-menuBtnContainer.className =
-    "text-center mt-12";
-
+menuBtnContainer.className = "text-center mt-12";
 
 const ourMenuBtn = document.createElement("button");
 
@@ -429,13 +327,12 @@ ourMenuBtn.className =
 ourMenuBtn.textContent = "Our Menu";
 
 ourMenuBtn.addEventListener("click", () => {
+
     alert("Detailed Menu Coming Soon. ☕");
+
 });
 
 menuBtnContainer.appendChild(ourMenuBtn);
-
-
-// APPEND MENU
 
 menuContainer.appendChild(menuTitle);
 menuContainer.appendChild(menuGrid);
@@ -446,191 +343,35 @@ menuSection.appendChild(menuContainer);
 body.appendChild(menuSection);
 
 // =================
-// PROMO SECTION
-// =================
-
-const promoSection = document.createElement("section");
-promoSection.className = "bg-[#ead7c3] py-20";
-
-const promoContainer = document.createElement("div");
-promoContainer.className =
-"max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center";
-
-
-// =================
-// IMAGE CONTAINER
-// =================
-
-const promoImgContainer = document.createElement("div");
-promoImgContainer.className =
-"relative flex justify-center items-center";
-
-const promoImg1 = document.createElement("img");
-promoImg1.src =
-"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
-promoImg1.className =
-"w-[240px] relative left-20 hover:scale-105 transition duration-300";
-
-const promoImg2 = document.createElement("img");
-promoImg2.src =
-"https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
-promoImg2.className =
-"w-[240px] absolute hover:scale-105 transition duration-300";
-
-promoImgContainer.appendChild(promoImg1);
-promoImgContainer.appendChild(promoImg2);
-
-
-// =================
-// TEXT
-// =================
-
-const promoText = document.createElement("div");
-promoText.className =
-"text-center md:text-left space-y-6";
-
-const promoTitle = document.createElement("h2");
-promoTitle.className =
-"text-5xl title-font";
-promoTitle.textContent = "Promo";
-
-const promoDesc = document.createElement("p");
-promoDesc.className =
-"text-3xl font-semibold";
-promoDesc.innerHTML =
-"Buy 1 (Medium) Get 1 (Venti) <br> Free";
-
-const promoPrice = document.createElement("h3");
-promoPrice.className =
-"text-6xl font-bold";
-promoPrice.textContent = "30.000";
-
-const promoDrink = document.createElement("p");
-promoDrink.className =
-"text-3xl font-semibold text-[#6b3410]";
-promoDrink.textContent = "Coffee Latte";
-
-promoText.appendChild(promoTitle);
-promoText.appendChild(promoDesc);
-promoText.appendChild(promoPrice);
-promoText.appendChild(promoDrink);
-
-
-// =================
-// APPEND
-// =================
-
-promoContainer.appendChild(promoImgContainer);
-promoContainer.appendChild(promoText);
-
-promoSection.appendChild(promoContainer);
-
-body.appendChild(promoSection);
-
-// =================
-// PROMO CARDS
-// =================
-
-const promoCardsSection = document.createElement("section");
-
-promoCardsSection.className =
-    "bg-[#ead7c3] py-16";
-
-
-const promoCardsContainer = document.createElement("div");
-
-promoCardsContainer.className =
-    "max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10";
-
-
-const promoImages = [
-
-    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/free%20delivery!.png",
-
-    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/paket%20hemat.png",
-
-    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/Untitled%20(21).png"
-
-];
-
-
-promoImages.forEach(imgSrc => {
-
-    const card = document.createElement("div");
-
-    card.className =
-        "overflow-hidden rounded-lg shadow-md hover:shadow-xl transition";
-
-    const img = document.createElement("img");
-
-    img.src = imgSrc;
-
-    img.className =
-        "w-full h-[380px] object-cover";
-
-    card.appendChild(img);
-
-    promoCardsContainer.appendChild(card);
-
-});
-
-
-promoCardsSection.appendChild(promoCardsContainer);
-
-body.appendChild(promoCardsSection);
-
-
-
-// =================
-// GALERY SECTION
+// GALLERY
 // =================
 
 const gallerySection = document.createElement("section");
-
-gallerySection.className =
-    "bg-[#ead7c3] py-20";
-
+gallerySection.className = "bg-[#ead7c3] py-20";
 
 const galleryContainer = document.createElement("div");
-
-galleryContainer.className =
-    "max-w-7xl mx-auto px-6";
-
-
-// TITLE
+galleryContainer.className = "max-w-7xl mx-auto px-6";
 
 const galleryTitle = document.createElement("h2");
 
 galleryTitle.className =
-    "text-4xl title-font text-center mb-16";
+    "text-3xl md:text-4xl title-font text-center mb-16";
 
 galleryTitle.textContent = "Galery";
-
-
-// GRID (2 kolom HP, 4 kolom laptop)
 
 const galleryGrid = document.createElement("div");
 
 galleryGrid.className =
-    "grid grid-cols-2 md:grid-cols-4 gap-10";
-
-
-// DATA IMAGE (4 gambar)
+    "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6";
 
 const galleryImages = [
 
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-1.png",
-
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-2.png",
-
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-3.png",
-
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-4.jpg"
 
 ];
-
-
-// LOOP IMAGE
 
 galleryImages.forEach(src => {
 
@@ -639,14 +380,11 @@ galleryImages.forEach(src => {
     img.src = src;
 
     img.className =
-        "w-full h-[260px] object-cover rounded-lg shadow-md hover:scale-105 transition duration-300";
+        "w-full h-[220px] md:h-[260px] object-cover rounded-lg shadow-md hover:scale-105 transition";
 
     galleryGrid.appendChild(img);
 
 });
-
-
-// APPEND
 
 galleryContainer.appendChild(galleryTitle);
 galleryContainer.appendChild(galleryGrid);
@@ -660,20 +398,14 @@ body.appendChild(gallerySection);
 // =================
 
 const preFooter = document.createElement("section");
-
-preFooter.className =
-    "bg-[#e8cdb1] py-16";
-
+preFooter.className = "bg-[#e8cdb1] py-16";
 
 const preFooterContainer = document.createElement("div");
 
 preFooterContainer.className =
     "max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16 items-start";
 
-
-// =================
-// COLUMN 1 - BRAND
-// =================
+// BRAND
 
 const brandColumn = document.createElement("div");
 
@@ -682,43 +414,27 @@ const brandTitle = document.createElement("h2");
 brandTitle.className =
     "text-3xl title-font flex items-center gap-2";
 
-brandTitle.textContent =
-    "☕ Sunset Brew";
+brandTitle.textContent = "☕ Sunset Brew";
 
 brandColumn.appendChild(brandTitle);
 
-
-// =================
-// COLUMN 2 - QUICK LINKS
-// =================
+// LINKS
 
 const linksColumn = document.createElement("div");
 
 const linksTitle = document.createElement("h3");
 
-linksTitle.className =
-    "text-2xl title-font mb-6";
+linksTitle.className = "text-2xl title-font mb-6";
 
-linksTitle.textContent =
-    "Quick Links";
-
+linksTitle.textContent = "Quick Links";
 
 const linksList = document.createElement("ul");
 
-linksList.className =
-    "space-y-3 text-gray-800";
-
+linksList.className = "space-y-3 text-gray-800";
 
 const footerLinks = [
-    "Home",
-    "About",
-    "Menu",
-    "Promo",
-    "Galery",
-    "Contact",
-    "Our Team"
+    "Home", "About", "Menu", "Promo", "Galery", "Contact", "Our Team"
 ];
-
 
 footerLinks.forEach(link => {
 
@@ -727,59 +443,42 @@ footerLinks.forEach(link => {
     const a = document.createElement("a");
 
     a.textContent = link;
-
     a.href = "#";
 
-    a.className =
-        "hover:text-orange-600 transition";
+    a.className = "hover:text-orange-600 transition";
 
     li.appendChild(a);
-
     linksList.appendChild(li);
 
 });
 
-
 linksColumn.appendChild(linksTitle);
 linksColumn.appendChild(linksList);
 
-
-// =================
-// COLUMN 3 - LOCATION
-// =================
+// LOCATION
 
 const locationColumn = document.createElement("div");
 
 const locationTitle = document.createElement("h3");
 
-locationTitle.className =
-    "text-2xl title-font mb-6";
+locationTitle.className = "text-2xl title-font mb-6";
 
-locationTitle.textContent =
-    "Location";
-
+locationTitle.textContent = "Location";
 
 const map = document.createElement("iframe");
 
-map.src =
-    "https://www.google.com/maps?q=Bandung&output=embed";
+map.src = "https://www.google.com/maps?q=Bandung&output=embed";
 
 map.width = "250";
 map.height = "180";
-
 map.style.border = "0";
 
-map.className =
-    "rounded-md shadow-md";
-
+map.className = "rounded-md shadow-md";
 
 locationColumn.appendChild(locationTitle);
 locationColumn.appendChild(map);
 
-
-// =================
-// APPEND PRE FOOTER
-// =================
+// APPEND FOOTER
 
 preFooterContainer.appendChild(brandColumn);
 preFooterContainer.appendChild(linksColumn);
@@ -788,4 +487,3 @@ preFooterContainer.appendChild(locationColumn);
 preFooter.appendChild(preFooterContainer);
 
 body.appendChild(preFooter);
-
