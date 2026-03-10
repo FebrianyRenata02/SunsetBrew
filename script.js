@@ -278,7 +278,7 @@ Web Desainer, dll.
 
 const aboutImageContainer = document.createElement("div");
 
-const aboutImg = document.createElement("img");
+const aboutImg = document.createElement("https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/biji-kopi.png");
 
 aboutImg.src =
     "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085";
