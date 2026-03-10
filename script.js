@@ -22,9 +22,28 @@ navContainer.className =
 
 // LOGO
 
-const logo = document.createElement("h1");
-logo.className = "text-2xl title-font flex gap-2 items-center";
-logo.textContent = "☕ Sunset Brew";
+const logo = document.createElement("div");
+logo.className = "flex items-center gap-3 cursor-pointer";
+
+// logo image
+const logoImg = document.createElement("img");
+logoImg.src = "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
+logoImg.className = "w-10 h-10 object-contain";
+
+// logo text
+const logoText = document.createElement("h1");
+logoText.className = "text-2xl title-font";
+logoText.textContent = "Sunset Brew";
+
+// klik logo kembali ke Home
+logo.addEventListener("click", () => {
+    document.getElementById("home-section").scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+logo.appendChild(logoImg);
+logo.appendChild(logoText);
 
 // NAV ITEMS
 
@@ -467,14 +486,30 @@ preFooterContainer.className =
 
 const brandColumn = document.createElement("div");
 
-const brandTitle = document.createElement("h2");
+const brandLogo = document.createElement("div");
+brandLogo.className = "flex items-center gap-3 cursor-pointer";
 
-brandTitle.className =
-    "text-3xl title-font flex items-center gap-2";
+// logo image
+const logoImgFooter = document.createElement("img");
+logoImgFooter.src = "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
+logoImgFooter.className = "w-10 h-10 object-contain";
 
-brandTitle.textContent = "☕ Sunset Brew";
+// logo text
+const logoTextFooter = document.createElement("h2");
+logoTextFooter.className = "text-3xl title-font";
+logoTextFooter.textContent = "Sunset Brew";
 
-brandColumn.appendChild(brandTitle);
+// klik kembali ke Home
+brandLogo.addEventListener("click", () => {
+    document.getElementById("home-section").scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
+brandLogo.appendChild(logoImgFooter);
+brandLogo.appendChild(logoTextFooter);
+
+brandColumn.appendChild(brandLogo);
 
 // LINKS
 
