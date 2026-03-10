@@ -177,7 +177,7 @@ orderBtn.textContent = "Order Now";
 
 orderBtn.addEventListener("click", () => {
 
-    document.getElementById("about-section").scrollIntoView({
+    document.getElementById("menu-section").scrollIntoView({
         behavior: "smooth"
     });
 
@@ -263,6 +263,7 @@ body.appendChild(aboutSection);
 // =================
 
 const menuSection = document.createElement("section");
+menuSection.id = "menu-section";
 menuSection.className = "bg-[#ead7c3] py-20";
 
 const menuContainer = document.createElement("div");
