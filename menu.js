@@ -35,6 +35,10 @@ const logoBox = document.createElement("div");
 
 logoBox.className = "flex items-center gap-3 cursor-pointer";
 
+logoBox.addEventListener("click", () => {
+    window.location.href = "index.html";
+});
+
 const logo = document.createElement("img");
 
 logo.src =
@@ -80,6 +84,12 @@ menus.forEach(item => {
     li.className =
         "cursor-pointer hover:text-amber-700 transition";
 
+    if (item === "Home") {
+        li.addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    }
+
     menuList.appendChild(li);
 
 });
@@ -119,16 +129,10 @@ const mobileMenu = document.createElement("div");
 mobileMenu.className =
     "fixed top-[36px] right-0 w-full h-screen bg-[#f4e3d3] z-40 transform translate-x-full transition-transform duration-300";
 
-
-// CONTAINER
-
 const mobileContainer = document.createElement("div");
 
 mobileContainer.className =
     "flex flex-col items-center mt-20 text-xl";
-
-
-// MENU ITEMS
 
 menus.forEach(item => {
 
@@ -138,6 +142,12 @@ menus.forEach(item => {
 
     link.className =
         "py-4 border-b w-full text-center hover:bg-[#e7d3bf] cursor-pointer";
+
+    if (item === "Home") {
+        link.addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    }
 
     mobileContainer.appendChild(link);
 
@@ -199,6 +209,7 @@ hero.appendChild(title);
 
 document.body.appendChild(hero);
 
+
 // =======================
 // MENU SECTION
 // =======================
@@ -215,6 +226,7 @@ menuContainer.className =
 
 
 // TITLE
+
 const menuTitle = document.createElement("h2");
 
 menuTitle.className =
@@ -229,20 +241,16 @@ menuContainer.appendChild(menuTitle);
 // DATA MENU
 // =======================
 
-const coffeeMenu = [
-
-    {
+const coffeeMenu = [{
         name: "Butterscotch Sea Salt Latte",
         price: "48.000",
         img: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/Butterscotch%20Sea%20Salt%20Latte.png"
     },
-
     {
         name: "Caramel Latte",
         price: "26.000",
         img: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/Carammel%20Latte.png"
     },
-
     {
         name: "Vanila Latte",
         price: "35.000",
@@ -324,8 +332,6 @@ coffeeMenu.forEach(item => {
     menuItem.className =
         "flex flex-col md:grid md:grid-cols-[260px_1fr] items-center gap-8 md:gap-16 mb-16 md:mb-20 text-center md:text-left";
 
-
-    // IMAGE
     const img = document.createElement("img");
 
     img.src = item.img;
@@ -333,15 +339,10 @@ coffeeMenu.forEach(item => {
     img.className =
         "w-[110px] md:w-[130px] mx-auto md:mx-0 object-contain hover:scale-110 transition duration-300";
 
-
-    // TEXT BOX
     const textBox = document.createElement("div");
-    textBox.className = "menu-text";
 
-    textBox.className = "md:pl-6";
+    textBox.className = "menu-text md:pl-6";
 
-
-    // NAME
     const name = document.createElement("h3");
 
     name.className =
@@ -349,15 +350,12 @@ coffeeMenu.forEach(item => {
 
     name.textContent = item.name;
 
-
-    // PRICE
     const price = document.createElement("p");
 
     price.className =
         "text-lg md:text-xl mt-2";
 
     price.textContent = item.price;
-
 
     textBox.appendChild(name);
     textBox.appendChild(price);
@@ -373,79 +371,56 @@ menuSection.appendChild(menuContainer);
 
 document.body.appendChild(menuSection);
 
+
 // =======================
 // PRE FOOTER
 // =======================
 
 const preFooter = document.createElement("section");
 
-preFooter.className =
-    "bg-[#e8cdb1] py-16";
+preFooter.className = "pre-footer";
 
 const preFooterContainer = document.createElement("div");
 
-preFooterContainer.className =
-    "max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-start";
+preFooterContainer.className = "pre-footer-container";
 
 
-// =======================
 // BRAND
-// =======================
 
 const brandColumn = document.createElement("div");
 
+brandColumn.className = "footer-brand";
+
 const brandLogo = document.createElement("div");
 
-brandLogo.className =
-    "flex items-center gap-3 mb-4";
+brandLogo.className = "footer-logo";
 
-// logo
 const logoImgFooter = document.createElement("img");
 
 logoImgFooter.src =
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
 
-logoImgFooter.className =
-    "w-16 h-16 object-contain";
-
-// text
 const logoTextFooter = document.createElement("h2");
 
-logoTextFooter.className =
-    "text-2xl font-semibold";
-
 logoTextFooter.textContent = "Sunset Brew";
-
-// description
-const brandDesc = document.createElement("p");
-
-brandDesc.className =
-    "text-sm text-gray-700 mt-2 leading-relaxed";
 
 brandLogo.appendChild(logoImgFooter);
 brandLogo.appendChild(logoTextFooter);
 
 brandColumn.appendChild(brandLogo);
-brandColumn.appendChild(brandDesc);
 
 
-// =======================
 // QUICK LINKS
-// =======================
 
 const linksColumn = document.createElement("div");
 
-const linksTitle = document.createElement("h3");
+linksColumn.className = "footer-links";
 
-linksTitle.className =
-    "text-xl font-semibold mb-6";
+const linksTitle = document.createElement("h3");
 
 linksTitle.textContent = "Quick Links";
 
 const linksList = document.createElement("ul");
-
-linksList.className =
-    "space-y-3 text-gray-800";
 
 const footerLinks = [
     "Home",
@@ -465,10 +440,11 @@ footerLinks.forEach(link => {
 
     a.textContent = link;
 
-    a.href = "#";
-
-    a.className =
-        "hover:text-amber-700 transition";
+    if (link === "Home") {
+        a.href = "index.html";
+    } else {
+        a.href = "#";
+    }
 
     li.appendChild(a);
 
@@ -480,16 +456,13 @@ linksColumn.appendChild(linksTitle);
 linksColumn.appendChild(linksList);
 
 
-// =======================
 // LOCATION
-// =======================
 
 const locationColumn = document.createElement("div");
 
-const locationTitle = document.createElement("h3");
+locationColumn.className = "footer-location";
 
-locationTitle.className =
-    "text-xl font-semibold mb-6";
+const locationTitle = document.createElement("h3");
 
 locationTitle.textContent = "Location";
 
@@ -498,21 +471,13 @@ const map = document.createElement("iframe");
 map.src =
     "https://www.google.com/maps?q=Bandung&output=embed";
 
-map.width = "100%";
-map.height = "180";
-
-map.style.border = "0";
-
-map.className =
-    "rounded-lg shadow-md";
+map.className = "footer-map";
 
 locationColumn.appendChild(locationTitle);
 locationColumn.appendChild(map);
 
 
-// =======================
 // APPEND
-// =======================
 
 preFooterContainer.appendChild(brandColumn);
 preFooterContainer.appendChild(linksColumn);
@@ -521,10 +486,3 @@ preFooterContainer.appendChild(locationColumn);
 preFooter.appendChild(preFooterContainer);
 
 document.body.appendChild(preFooter);
-
-preFooter.className = "pre-footer";
-preFooterContainer.className = "pre-footer-container";
-brandColumn.className = "footer-brand";
-linksColumn.className = "footer-links";
-locationColumn.className = "footer-location";
-map.className = "footer-map";
