@@ -33,7 +33,7 @@ logoBox.className = "flex items-center gap-3 cursor-pointer";
 
 const logo = document.createElement("img");
 logo.src = "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
-logo.className = "w-12 md:w-16";
+logo.className = "w-12 md:w-14";
 
 const brand = document.createElement("h1");
 brand.textContent = "Sunset Brew";
