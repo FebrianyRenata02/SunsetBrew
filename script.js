@@ -404,7 +404,7 @@ ourMenuBtn.textContent = "Our Menu";
 
 ourMenuBtn.addEventListener("click", () => {
 
-    alert("Detailed Menu Coming Soon. ☕");
+    window.location.href = "menu.html";
 
 });
 
