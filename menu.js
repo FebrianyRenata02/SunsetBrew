@@ -27,16 +27,25 @@ navContainer.className =
     "max-w-6xl mx-auto flex justify-between items-center px-6 md:px-8 py-4";
 
 
+// =======================
 // LOGO
+// =======================
+
 const logoBox = document.createElement("div");
+
 logoBox.className = "flex items-center gap-3 cursor-pointer";
 
 const logo = document.createElement("img");
-logo.src = "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
+
+logo.src =
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
+
 logo.className = "w-12 md:w-14";
 
 const brand = document.createElement("h1");
+
 brand.textContent = "Sunset Brew";
+
 brand.className = "text-xl md:text-2xl";
 
 logoBox.appendChild(logo);
@@ -44,12 +53,13 @@ logoBox.appendChild(brand);
 
 
 // =======================
-// MENU LIST
+// MENU LIST DESKTOP
 // =======================
 
 const menuList = document.createElement("ul");
 
-menuList.className = "hidden md:flex gap-8 lg:gap-10 text-lg";
+menuList.className =
+    "hidden md:flex gap-8 lg:gap-10 text-lg";
 
 const menus = [
     "Home",
@@ -74,11 +84,93 @@ menus.forEach(item => {
 
 });
 
+
+// =======================
+// HAMBURGER BUTTON
+// =======================
+
+const hamburger = document.createElement("button");
+
+hamburger.innerHTML = "☰";
+
+hamburger.className =
+    "md:hidden text-3xl cursor-pointer";
+
+
+// =======================
+// APPEND NAVBAR
+// =======================
+
 navContainer.appendChild(logoBox);
 navContainer.appendChild(menuList);
+navContainer.appendChild(hamburger);
+
 navbar.appendChild(navContainer);
 
 document.body.appendChild(navbar);
+
+
+// =======================
+// MOBILE MENU
+// =======================
+
+const mobileMenu = document.createElement("div");
+
+mobileMenu.className =
+    "fixed top-[36px] right-0 w-full h-screen bg-[#f4e3d3] z-40 transform translate-x-full transition-transform duration-300";
+
+
+// CONTAINER
+
+const mobileContainer = document.createElement("div");
+
+mobileContainer.className =
+    "flex flex-col items-center mt-20 text-xl";
+
+
+// MENU ITEMS
+
+menus.forEach(item => {
+
+    const link = document.createElement("div");
+
+    link.textContent = item;
+
+    link.className =
+        "py-4 border-b w-full text-center hover:bg-[#e7d3bf] cursor-pointer";
+
+    mobileContainer.appendChild(link);
+
+});
+
+mobileMenu.appendChild(mobileContainer);
+
+document.body.appendChild(mobileMenu);
+
+
+// =======================
+// MENU TOGGLE
+// =======================
+
+let menuOpen = false;
+
+hamburger.addEventListener("click", () => {
+
+    menuOpen = !menuOpen;
+
+    if (menuOpen) {
+
+        mobileMenu.classList.remove("translate-x-full");
+        hamburger.innerHTML = "✕";
+
+    } else {
+
+        mobileMenu.classList.add("translate-x-full");
+        hamburger.innerHTML = "☰";
+
+    }
+
+});
 
 
 // =======================
@@ -106,7 +198,6 @@ hero.appendChild(overlay);
 hero.appendChild(title);
 
 document.body.appendChild(hero);
-
 
 // =======================
 // MENU SECTION
