@@ -1,0 +1,252 @@
+/* =========================
+GLOBAL
+========================= */
+
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    
+    /* =========================
+    FONT STYLE
+    ========================= */
+    
+    .nav-font{
+    font-family:"Berkshire Swash", cursive;
+    }
+    
+    .hero-title{
+    font-family:"Berkshire Swash", cursive;
+    }
+    
+    .menu-title{
+    font-family:"Berkshire Swash", cursive;
+    }
+    
+    .menu-name{
+    font-family:"Berkshire Swash", cursive;
+    }
+    
+    
+    /* =========================
+    HERO SECTION
+    ========================= */
+    
+    .hero-menu{
+    background-image:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    position:relative;
+    
+    min-height:450px;
+    }
+    
+    
+    /* =========================
+    HERO OVERLAY
+    ========================= */
+    
+    .hero-overlay{
+    background:rgba(0,0,0,0.45);
+    
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    }
+    
+    
+    /* =========================
+    HERO TITLE
+    ========================= */
+    
+    .hero-title{
+    color:white;
+    font-size:70px;
+    text-align:center;
+    }
+    
+    
+    /* =========================
+    MENU SECTION
+    ========================= */
+    
+    .menu-section{
+    background:#e7d5c3;
+    padding:60px 20px;
+    text-align:center;
+    }
+    
+    .menu-title{
+    font-size:40px;
+    margin-bottom:50px;
+    }
+    
+    
+/* =========================
+MENU ITEM
+========================= */
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start; /* sebelumnya center */
+    gap:60px; /* jarak gambar ke text */
+    margin-bottom:60px;
+    flex-wrap:wrap;
+    
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    }
+    
+    .menu-item img{
+    width:130px;
+    object-fit:contain;
+    }
+    
+    .menu-text{
+    text-align:left;
+    }
+    
+    .menu-name{
+    font-size:28px;
+    margin:0;
+    }
+    
+    .menu-price{
+    font-size:20px;
+    margin-top:5px;
+    }
+
+/* =========================
+PRE FOOTER
+========================= */
+
+.pre-footer{
+    background:#e8cdb1;
+    padding:80px 20px 70px;
+    
+    }
+    
+    .pre-footer-container{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:90px;
+    align-items:flex-start;
+  
+    }
+    
+    
+    /* =========================
+    BRAND
+    ========================= */
+    
+    .footer-brand{
+    display:flex;
+    flex-direction:column;
+    font-family:"Berkshire Swash", cursive;
+    }
+    
+    .footer-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+    }
+    
+    .footer-logo img{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    }
+    
+    .footer-logo h2{
+    font-family:"Berkshire Swash", cursive;
+    font-size:30px;
+    margin:0;
+    color:#1f1f1f;
+    }
+    
+    .footer-desc{
+    font-size:15px;
+    color:#444;
+    line-height:1.6;
+    max-width:260px;
+    }
+    
+    
+    /* =========================
+    QUICK LINKS
+    ========================= */
+    
+    .footer-links h3{
+    font-family:"Berkshire Swash", cursive;
+    font-size:30px;
+    margin-bottom:25px;
+    color:#1f1f1f;
+    }
+    
+    .footer-links ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    }
+    
+    .footer-links li{
+    margin-bottom:12px;
+    }
+    
+    .footer-links a{
+    text-decoration:none;
+    color:#2f2f2f;
+    font-size:16px;
+    transition:0.3s;
+    }
+    
+    .footer-links a:hover{
+    color:#8b4513;
+    }
+    
+    
+    /* =========================
+    LOCATION
+    ========================= */
+    
+    .footer-location h3{
+    font-family:"Berkshire Swash", cursive;
+    font-size:30px;
+    margin-bottom:25px;
+    color:#1f1f1f;
+    }
+    
+    .footer-map{
+    width:280px;
+    height:190px;
+    border-radius:6px;
+    border:none;
+    }
+    
+    
+    /* =========================
+    FOOTER COPYRIGHT
+    ========================= */
+    
+    .footer{
+    background:linear-gradient(to right,#3b1f05,#5b2d07);
+    color:white;
+    text-align:center;
+    padding:18px;
+    font-size:18px;
+    font-weight:500;
+    }
