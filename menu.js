@@ -84,11 +84,25 @@ menus.forEach(item => {
     li.className =
         "cursor-pointer hover:text-amber-700 transition";
 
-    if (item === "Home") {
-        li.addEventListener("click", () => {
+    li.addEventListener("click", () => {
+
+        if (item === "Home") {
             window.location.href = "index.html";
-        });
-    }
+        } else if (item === "About") {
+            window.location.href = "index.html#about";
+        } else if (item === "Menu") {
+            window.location.href = "menu.html";
+        } else if (item === "Promo") {
+            window.location.href = "index.html#promo";
+        } else if (item === "Galery") {
+            window.location.href = "index.html#galery";
+        } else if (item === "Contact") {
+            window.location.href = "index.html#contact";
+        } else if (item === "Our Team") {
+            window.location.href = "index.html#team";
+        }
+
+    });
 
     menuList.appendChild(li);
 
@@ -143,11 +157,25 @@ menus.forEach(item => {
     link.className =
         "py-4 border-b w-full text-center hover:bg-[#e7d3bf] cursor-pointer";
 
-    if (item === "Home") {
-        link.addEventListener("click", () => {
+    link.addEventListener("click", () => {
+
+        if (item === "Home") {
             window.location.href = "index.html";
-        });
-    }
+        } else if (item === "About") {
+            window.location.href = "index.html#about";
+        } else if (item === "Menu") {
+            window.location.href = "menu.html";
+        } else if (item === "Promo") {
+            window.location.href = "index.html#promo";
+        } else if (item === "Galery") {
+            window.location.href = "index.html#galery";
+        } else if (item === "Contact") {
+            window.location.href = "index.html#contact";
+        } else if (item === "Our Team") {
+            window.location.href = "index.html#team";
+        }
+
+    });
 
     mobileContainer.appendChild(link);
 
