@@ -171,7 +171,7 @@ hamburger.addEventListener("click", () => {
     if (menuOpen) {
 
         mobileMenu.classList.remove("translate-x-full");
-        hamburger.innerHTML = "✕";
+        hamburger.innerHTML = "☰";
 
     } else {
 
