@@ -155,6 +155,23 @@ navItems.forEach(item => {
                 behavior: "smooth"
             });
         }
+        if (item === "Promo") {
+            document.getElementById("promo-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "Contact") {
+            document.getElementById("contact-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "Our Team") {
+            document.getElementById("team-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
 
         mobileMenu.style.maxHeight = "0px";
         menuBtn.innerHTML = "☰";
@@ -274,6 +291,7 @@ body.appendChild(hero);
 // =================
 
 const aboutSection = document.createElement("section");
+aboutSection.id = "about";
 
 aboutSection.id = "about-section";
 aboutSection.className = "bg-[#ead7c3] py-20";
@@ -564,6 +582,23 @@ footerLinks.forEach(link => {
 
         if (link === "Galery") {
             document.getElementById("gallery-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+        if (item === "Promo") {
+            document.getElementById("promo-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "Contact") {
+            document.getElementById("contact-section").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        if (item === "Our Team") {
+            document.getElementById("team-section").scrollIntoView({
                 behavior: "smooth"
             });
         }
