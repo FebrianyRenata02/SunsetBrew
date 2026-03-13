@@ -177,7 +177,7 @@ menuBtn.addEventListener("click", () => {
     if (menuOpen) {
 
         mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
-        menuBtn.innerHTML = "✕";
+        menuBtn.innerHTML = "☰";
 
     } else {
 
