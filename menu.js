@@ -522,4 +522,11 @@ copyright.className = "copyright";
 copyright.textContent =
     "© 2026 Sunset Brew. All Rights Reserved.";
 
+// 🔥 biar bisa diklik
+copyright.style.cursor = "pointer";
+
+copyright.addEventListener("click", () => {
+    window.open("https://sunset-brew.vercel.app/", "_blank");
+});
+
 document.body.appendChild(copyright);
