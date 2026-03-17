@@ -608,10 +608,16 @@ body.appendChild(preFooter);
 // COPYRIGHT (FIX 🔥)
 // =================
 const copyright = document.createElement("div");
-copyright.className =
-    "bg-[#5a2d0c] text-white text-center py-4 text-sm";
+copyright.className = "copyright";
 
 copyright.textContent =
     "© 2026 Sunset Brew. All Rights Reserved.";
+
+// 🔥 biar bisa diklik
+copyright.style.cursor = "pointer";
+
+copyright.addEventListener("click", () => {
+    window.open("https://san-digital-agency.vercel.app/", "_blank");
+});
 
 body.appendChild(copyright);
