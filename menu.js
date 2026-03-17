@@ -405,47 +405,44 @@ document.body.appendChild(menuSection);
 // =======================
 
 const preFooter = document.createElement("section");
-
 preFooter.className = "pre-footer";
 
 const preFooterContainer = document.createElement("div");
-
 preFooterContainer.className = "pre-footer-container";
 
-
+// =======================
 // BRAND
+// =======================
 
 const brandColumn = document.createElement("div");
-
 brandColumn.className = "footer-brand";
 
 const brandLogo = document.createElement("div");
-
 brandLogo.className = "footer-logo";
 
-const logoImgFooter = document.createElement("img");
+brandLogo.addEventListener("click", () => {
+    window.location.href = "index.html";
+});
 
+const logoImgFooter = document.createElement("img");
 logoImgFooter.src =
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
 
 const logoTextFooter = document.createElement("h2");
-
 logoTextFooter.textContent = "Sunset Brew";
 
 brandLogo.appendChild(logoImgFooter);
 brandLogo.appendChild(logoTextFooter);
-
 brandColumn.appendChild(brandLogo);
 
-
+// =======================
 // QUICK LINKS
+// =======================
 
 const linksColumn = document.createElement("div");
-
 linksColumn.className = "footer-links";
 
 const linksTitle = document.createElement("h3");
-
 linksTitle.textContent = "Quick Links";
 
 const linksList = document.createElement("ul");
@@ -463,19 +460,23 @@ const footerLinks = [
 footerLinks.forEach(link => {
 
     const li = document.createElement("li");
-
     const a = document.createElement("a");
 
     a.textContent = link;
 
-    if (link === "Home") {
-        a.href = "index.html";
-    } else {
-        a.href = "#";
-    }
+    const mapLink = {
+        "Home": "index.html",
+        "About": "index.html#about",
+        "Menu": "menu.html",
+        "Promo": "index.html#promo",
+        "Galery": "index.html#galery",
+        "Contact": "index.html#contact",
+        "Our Team": "index.html#team"
+    };
+
+    a.href = mapLink[link];
 
     li.appendChild(a);
-
     linksList.appendChild(li);
 
 });
@@ -483,34 +484,42 @@ footerLinks.forEach(link => {
 linksColumn.appendChild(linksTitle);
 linksColumn.appendChild(linksList);
 
-
+// =======================
 // LOCATION
+// =======================
 
 const locationColumn = document.createElement("div");
-
 locationColumn.className = "footer-location";
 
 const locationTitle = document.createElement("h3");
-
 locationTitle.textContent = "Location";
 
 const map = document.createElement("iframe");
-
-map.src =
-    "https://www.google.com/maps?q=Bandung&output=embed";
-
+map.src = "https://www.google.com/maps?q=Bandung&output=embed";
 map.className = "footer-map";
 
 locationColumn.appendChild(locationTitle);
 locationColumn.appendChild(map);
 
-
-// APPEND
+// =======================
+// APPEND PRE FOOTER
+// =======================
 
 preFooterContainer.appendChild(brandColumn);
 preFooterContainer.appendChild(linksColumn);
 preFooterContainer.appendChild(locationColumn);
 
 preFooter.appendChild(preFooterContainer);
-
 document.body.appendChild(preFooter);
+
+// =======================
+// COPYRIGHT (FIX 🔥)
+// =======================
+
+const copyright = document.createElement("div");
+copyright.className = "copyright";
+
+copyright.textContent =
+    "© 2026 Sunset Brew. All Rights Reserved.";
+
+document.body.appendChild(copyright);
