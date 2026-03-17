@@ -496,28 +496,25 @@ const preFooter = document.createElement("section");
 preFooter.className = "bg-[#e8cdb1] py-16";
 
 const preFooterContainer = document.createElement("div");
-
 preFooterContainer.className =
     "max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16 items-start";
 
+// =================
 // BRAND
-
+// =================
 const brandColumn = document.createElement("div");
 
 const brandLogo = document.createElement("div");
 brandLogo.className = "flex items-center gap-3 cursor-pointer";
 
-// logo image
 const logoImgFooter = document.createElement("img");
 logoImgFooter.src = "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
 logoImgFooter.className = "w-10 h-10 object-contain";
 
-// logo text
 const logoTextFooter = document.createElement("h2");
 logoTextFooter.className = "text-3xl title-font";
 logoTextFooter.textContent = "Sunset Brew";
 
-// klik kembali ke Home
 brandLogo.addEventListener("click", () => {
     document.getElementById("home-section").scrollIntoView({
         behavior: "smooth"
@@ -526,21 +523,18 @@ brandLogo.addEventListener("click", () => {
 
 brandLogo.appendChild(logoImgFooter);
 brandLogo.appendChild(logoTextFooter);
-
 brandColumn.appendChild(brandLogo);
 
+// =================
 // LINKS
-
+// =================
 const linksColumn = document.createElement("div");
 
 const linksTitle = document.createElement("h3");
-
 linksTitle.className = "text-2xl title-font mb-6";
-
 linksTitle.textContent = "Quick Links";
 
 const linksList = document.createElement("ul");
-
 linksList.className = "space-y-3 text-gray-800";
 
 const footerLinks = [
@@ -550,98 +544,74 @@ const footerLinks = [
 footerLinks.forEach(link => {
 
     const li = document.createElement("li");
-
     const a = document.createElement("a");
 
     a.textContent = link;
     a.href = "#";
-
     a.className = "hover:text-orange-600 transition";
 
     a.addEventListener("click", (e) => {
-
         e.preventDefault();
 
-        if (link === "Home") {
-            document.getElementById("home-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
+        const mapSection = {
+            "Home": "home-section",
+            "About": "about-section",
+            "Menu": "menu-section",
+            "Promo": "promo-section",
+            "Galery": "gallery-section",
+            "Contact": "contact-section",
+            "Our Team": "team-section"
+        };
 
-        if (link === "About") {
-            document.getElementById("about-section").scrollIntoView({
+        const target = document.getElementById(mapSection[link]);
+        if (target) {
+            target.scrollIntoView({
                 behavior: "smooth"
             });
         }
-
-        if (link === "Menu") {
-            document.getElementById("menu-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (link === "Galery") {
-            document.getElementById("gallery-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-        if (item === "Promo") {
-            document.getElementById("promo-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "Contact") {
-            document.getElementById("contact-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "Our Team") {
-            document.getElementById("team-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
     });
 
     li.appendChild(a);
     linksList.appendChild(li);
-
 });
 
 linksColumn.appendChild(linksTitle);
 linksColumn.appendChild(linksList);
 
+// =================
 // LOCATION
-
+// =================
 const locationColumn = document.createElement("div");
 
 const locationTitle = document.createElement("h3");
-
 locationTitle.className = "text-2xl title-font mb-6";
-
 locationTitle.textContent = "Location";
 
 const map = document.createElement("iframe");
-
 map.src = "https://www.google.com/maps?q=Bandung&output=embed";
-
-map.width = "250";
-map.height = "180";
-map.style.border = "0";
-
-map.className = "rounded-md shadow-md";
+map.className = "w-[250px] h-[180px] rounded-md shadow-md border-0";
 
 locationColumn.appendChild(locationTitle);
 locationColumn.appendChild(map);
 
-// APPEND
-
+// =================
+// APPEND PRE FOOTER
+// =================
 preFooterContainer.appendChild(brandColumn);
 preFooterContainer.appendChild(linksColumn);
 preFooterContainer.appendChild(locationColumn);
 
 preFooter.appendChild(preFooterContainer);
-
 body.appendChild(preFooter);
+
+// =================
+// COPYRIGHT (FIX 🔥)
+// =================
+const copyright = document.createElement("div");
+copyright.className =
+    "bg-[#5a2d0c] text-white text-center py-4 text-sm";
+
+copyright.textContent =
+    "© 2026 Sunset Brew. All Rights Reserved.";
+
+body.appendChild(copyright);
