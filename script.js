@@ -321,7 +321,7 @@ oleh <b>Febriany Renata</b> seorang CEO <b>San Digital Agency.</b>
 </p>
 
 <p>
-Awalnya Sunset Brew dibangun sebagai tempat nongkrong dan ngopi.
+Awalnya Sunset Brew dibangun sebagai tempat nongkrong dan ngopi secara online atau virtual.
 </p>
 
 <p>
