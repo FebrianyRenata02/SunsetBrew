@@ -94,6 +94,9 @@ navItems.forEach(item => {
                 behavior: "smooth"
             });
         }
+        if (item === "Contact") {
+            window.open("contact.html", "_blank");
+        }
 
     });
 
@@ -162,9 +165,7 @@ navItems.forEach(item => {
         }
 
         if (item === "Contact") {
-            document.getElementById("contact-section").scrollIntoView({
-                behavior: "smooth"
-            });
+            window.open("contact.html", "_blank");
         }
 
         if (item === "Our Team") {
