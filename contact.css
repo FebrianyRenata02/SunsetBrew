@@ -20,7 +20,7 @@ RESET
   CONTAINER GLOBAL 🔥
   ========================= */
   .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
     padding: 0 80px;
   }
@@ -229,10 +229,14 @@ RESET
   .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: start; /* ⬅️ ini bikin sejajar atas-bawah */
-    padding: 60px 0;
+    align-items: flex-start;
+  
+    /* 🔥 KUNCI SEJAJAR NAVBAR */
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 60px 80px;
+  
     gap: 60px;
-    flex-wrap: wrap;
   }
   
   .footer-container > div:nth-child(1) {
