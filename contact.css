@@ -1,0 +1,371 @@
+/* =========================
+RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* =========================
+  BODY
+  ========================= */
+  body {
+    font-family: "Berkshire Swash", cursive;
+    background: #f3e1cf;
+    color: #2b1e16;
+  }
+  
+  /* =========================
+  CONTAINER GLOBAL 🔥
+  ========================= */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 80px;
+  }
+  
+  /* =========================
+  GLOBAL HEADING
+  ========================= */
+  h1, h2, h3, .logo, .menu-item {
+    font-family: 'Berkshire Swash', cursive !important;
+  }
+  
+  /* =========================
+  TOP BAR
+  ========================= */
+  .top-bar {
+    background: linear-gradient(to right, #6b2e0d, #b35a1f);
+    color: #fff;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* =========================
+  NAVBAR
+  ========================= */
+  .navbar {
+    background: #e9d5c0;
+    padding: 15px 0; /* ⬅️ hanya atas bawah */
+  }
+  
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+  }
+  
+  .logo img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 25px;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #2b1e16;
+    font-size: 18px;
+  }
+  
+  .nav-menu a:hover {
+    color: #b35a1f;
+  }
+  
+  .hamburger {
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* =========================
+  SIDEBAR
+  ========================= */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: #e9d5c0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.4s; Poppins, sans-serif;
+    z-index: 999;
+    font-family: 
+  }
+  
+  .sidebar.active {
+    right: 0;
+  }
+  
+  .menu-item {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    border-bottom: 1px solid #d2bfa9;
+  }
+  
+  /* =========================
+  HERO
+  ========================= */
+  .hero-contact {
+    position: relative;
+    height: 320px;
+  }
+  
+  .hero-contact img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(65%);
+  }
+  
+  .hero-contact h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 56px;
+    color: #fff;
+  }
+  
+  /* =========================
+  CONTACT
+  ========================= */
+  .contact-section {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+  }
+  
+  .contact-box {
+    background: #e5cdb6;
+    padding: 35px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 520px;
+  }
+  
+  .contact-box p {
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .contact-box h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contact-box textarea,
+  .contact-box input {
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #d8bfa8;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .contact-box button {
+    width: 120px;
+    padding: 10px;
+    background: #5a2d0c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .contact-box button:hover {
+    background: #3d1e08;
+  }
+  
+  /* =========================
+  IMAGE
+  ========================= */
+  .coffee-image {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  .coffee-image img {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 10px;
+  }
+  
+  /* =========================
+  FOOTER (SEJAJAR 🔥)
+  ========================= */
+  .footer {
+    background: #e9d5c0;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start; /* ⬅️ ini bikin sejajar atas-bawah */
+    padding: 60px 0;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-container > div:nth-child(1) {
+    justify-content: flex-start;
+  }
+  
+  .footer-container > div:nth-child(2) {
+    text-align: start;
+  }
+  
+  .footer-container > div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* BRAND */
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .footer-brand img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+  }
+  
+  .footer-brand h3 {
+    font-size: 26px;
+  }
+  
+  /* TITLES */
+  .footer h4 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  
+  /* LINKS */
+  .footer ul {
+    list-style: none;
+  }
+  
+  .footer ul li {
+    margin-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .footer ul li:hover {
+    color: #b35a1f;
+    transform: translateX(5px);
+  }
+  
+  /* MAP */
+  .map {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  /* =========================
+  COPYRIGHT
+  ========================= */
+  .copyright {
+    background: #5a2d0c;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  /* =========================
+  RESPONSIVE
+  ========================= */
+  @media (max-width: 768px) {
+  
+    .container {
+      padding: 0 20px;
+    }
+  
+    .nav-menu {
+      display: none;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .logo img {
+      height: 35px;
+    }
+  
+    .hero-contact {
+      height: 250px;
+    }
+  
+    .hero-contact h1 {
+      font-size: 42px;
+    }
+  
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-brand {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+  
+    .hero-contact {
+      height: 200px;
+    }
+  
+    .hero-contact h1 {
+      font-size: 32px;
+    }
+  
+    .contact-box {
+      padding: 25px;
+    }
+  
+    .contact-box h2 {
+      font-size: 26px;
+    }
+  
+    .contact-box button {
+      width: 100%;
+    }
+  }
