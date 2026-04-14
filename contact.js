@@ -3,17 +3,8 @@
 // ==========================
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ==========================
-    // DATA MENU
-    // ==========================
     const menuItems = [
-        "Home",
-        "About",
-        "Menu",
-        "Promo",
-        "Galery",
-        "Contact",
-        "Our Team"
+        "Home", "About", "Menu", "Promo", "Galery", "Contact", "Our Team"
     ];
 
     // ==========================
@@ -25,28 +16,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(topBar);
 
     // ==========================
-    // NAVBAR (FIX 🔥)
+    // NAVBAR
     // ==========================
     const navbar = document.createElement("nav");
     navbar.className = "navbar";
 
     const navContainer = document.createElement("div");
-    navContainer.className = "container";
+    navContainer.className = "container nav-container";
 
-    // LOGO
     const logo = document.createElement("div");
     logo.className = "logo";
+    logo.innerHTML = `
+        <img src="https://raw.githubusercontent.com/FebrianyRenata02/SunsetBrew/refs/heads/main/logo.png">
+        <span>Sunset Brew</span>
+    `;
 
-    const logoImg = document.createElement("img");
-    logoImg.src = "https://raw.githubusercontent.com/FebrianyRenata02/SunsetBrew/refs/heads/main/logo.png";
-
-    const logoText = document.createElement("span");
-    logoText.textContent = "Sunset Brew";
-
-    logo.appendChild(logoImg);
-    logo.appendChild(logoText);
-
-    // MENU
     const navMenu = document.createElement("div");
     navMenu.className = "nav-menu";
 
@@ -57,16 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
         navMenu.appendChild(link);
     });
 
-    // HAMBURGER
     const hamburger = document.createElement("div");
     hamburger.className = "hamburger";
     hamburger.textContent = "☰";
 
-    // APPEND KE CONTAINER
-    navContainer.appendChild(logo);
-    navContainer.appendChild(navMenu);
-    navContainer.appendChild(hamburger);
-
+    navContainer.append(logo, navMenu, hamburger);
     navbar.appendChild(navContainer);
     document.body.appendChild(navbar);
 
@@ -80,49 +59,41 @@ document.addEventListener("DOMContentLoaded", () => {
         const link = document.createElement("div");
         link.className = "menu-item";
         link.textContent = item;
-
-        link.addEventListener("click", () => {
-            sidebar.classList.remove("active");
-        });
-
+        link.onclick = () => sidebar.classList.remove("active");
         sidebar.appendChild(link);
     });
 
     document.body.appendChild(sidebar);
-
-    hamburger.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-    });
+    hamburger.onclick = () => sidebar.classList.toggle("active");
 
     // ==========================
     // HERO
     // ==========================
     const hero = document.createElement("section");
     hero.className = "hero-contact";
-
-    const heroImg = document.createElement("img");
-    heroImg.src = "https://images.unsplash.com/photo-1511920170033-f8396924c348";
-
-    const heroTitle = document.createElement("h1");
-    heroTitle.textContent = "Contact";
-
-    hero.appendChild(heroImg);
-    hero.appendChild(heroTitle);
+    hero.innerHTML = `
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+        <h1>Contact</h1>
+    `;
     document.body.appendChild(hero);
 
     // ==========================
-    // CONTACT
+    // CONTACT (🔥 FIX UTAMA)
     // ==========================
     const contactSection = document.createElement("section");
     contactSection.className = "contact-section";
+
+    const container = document.createElement("div");
+    container.className = "container";
 
     const contactBox = document.createElement("div");
     contactBox.className = "contact-box";
 
     contactBox.innerHTML = `
-        <p>Contact Us</p>
+        <p class="sub">Contact Us</p>
         <h2>Get In Touch</h2>
-        <form>
+
+        <form class="contact-form">
             <textarea placeholder="Your Message Here"></textarea>
             <input type="text" placeholder="Phone Number">
             <input type="email" placeholder="E Mail">
@@ -130,36 +101,40 @@ document.addEventListener("DOMContentLoaded", () => {
         </form>
     `;
 
-    contactBox.querySelector("form").addEventListener("submit", (e) => {
+    contactBox.querySelector("form").addEventListener("submit", e => {
         e.preventDefault();
         alert("Message sent!");
     });
 
-    contactSection.appendChild(contactBox);
+    container.appendChild(contactBox);
+    contactSection.appendChild(container);
     document.body.appendChild(contactSection);
 
     // ==========================
-    // IMAGE
+    // IMAGE (🔥 FULL WIDTH DALAM CONTAINER)
     // ==========================
     const imageSection = document.createElement("section");
     imageSection.className = "coffee-image";
 
+    const imgContainer = document.createElement("div");
+    imgContainer.className = "container";
+
     const coffeeImg = document.createElement("img");
     coffeeImg.src = "https://images.unsplash.com/photo-1509042239860-f550ce710b93";
 
-    imageSection.appendChild(coffeeImg);
+    imgContainer.appendChild(coffeeImg);
+    imageSection.appendChild(imgContainer);
     document.body.appendChild(imageSection);
 
     // ==========================
-    // FOOTER (FIX 🔥)
+    // FOOTER
     // ==========================
     const footer = document.createElement("footer");
     footer.className = "footer";
 
     const footerContainer = document.createElement("div");
-    footerContainer.className = "container footer-container"; // 🔥 FIX DI SINI
+    footerContainer.className = "container footer-container";
 
-    // BRAND
     const brand = document.createElement("div");
     brand.className = "footer-brand";
     brand.innerHTML = `
@@ -167,32 +142,26 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>Sunset Brew</h3>
     `;
 
-    // LINKS
     const links = document.createElement("div");
+    links.className = "footer-links";
     links.innerHTML = `<h4>Quick Links</h4>`;
-    const ul = document.createElement("ul");
 
+    const ul = document.createElement("ul");
     menuItems.forEach(item => {
         const li = document.createElement("li");
         li.textContent = item;
         ul.appendChild(li);
     });
-
     links.appendChild(ul);
 
-    // LOCATION
     const location = document.createElement("div");
-    location.className = "map";
+    location.className = "footer-location";
     location.innerHTML = `
         <h4>Location</h4>
         <iframe src="https://maps.google.com/maps?q=Bandung&output=embed"></iframe>
     `;
 
-    // APPEND
-    footerContainer.appendChild(brand);
-    footerContainer.appendChild(links);
-    footerContainer.appendChild(location);
-
+    footerContainer.append(brand, links, location);
     footer.appendChild(footerContainer);
 
     const copy = document.createElement("div");
@@ -201,5 +170,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     footer.appendChild(copy);
     document.body.appendChild(footer);
-
 });
