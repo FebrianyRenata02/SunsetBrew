@@ -1,6 +1,30 @@
 const body = document.body;
 
 // =================
+// HELPER FUNCTION
+// =================
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+        section.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+
+const sectionMap = {
+    Home: "home-section",
+    About: "about-section",
+    Menu: "menu-section",
+    Promo: "promo-section",
+    Galery: "gallery-section",
+    Contact: "contact-section",
+    "Our Team": "team-section"
+};
+
+// =================
 // TOP BAR
 // =================
 
@@ -25,21 +49,18 @@ navContainer.className =
 const logo = document.createElement("div");
 logo.className = "flex items-center gap-3 cursor-pointer";
 
-// logo image
 const logoImg = document.createElement("img");
-logoImg.src = "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
+logoImg.src =
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
 logoImg.className = "w-10 h-10 object-contain";
+logoImg.alt = "Sunset Brew Logo";
 
-// logo text
 const logoText = document.createElement("h1");
 logoText.className = "text-2xl title-font";
 logoText.textContent = "Sunset Brew";
 
-// klik logo kembali ke Home
 logo.addEventListener("click", () => {
-    document.getElementById("home-section").scrollIntoView({
-        behavior: "smooth"
-    });
+    scrollToSection("home-section");
 });
 
 logo.appendChild(logoImg);
@@ -48,7 +69,13 @@ logo.appendChild(logoText);
 // NAV ITEMS
 
 const navItems = [
-    "Home", "About", "Menu", "Promo", "Galery", "Contact", "Our Team"
+    "Home",
+    "About",
+    "Menu",
+    "Promo",
+    "Galery",
+    "Contact",
+    "Our Team"
 ];
 
 // DESKTOP MENU
@@ -56,53 +83,21 @@ const navItems = [
 const desktopMenu = document.createElement("ul");
 desktopMenu.className = "hidden md:flex gap-8 title-font text-lg";
 
-navItems.forEach(item => {
-
+navItems.forEach((item) => {
     const li = document.createElement("li");
 
     const a = document.createElement("a");
-
     a.textContent = item;
     a.href = "#";
-
     a.className = "hover:text-orange-600 transition";
 
     a.addEventListener("click", (e) => {
-
         e.preventDefault();
-
-        if (item === "Home") {
-            document.getElementById("home-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "About") {
-            document.getElementById("about-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "Menu") {
-            document.getElementById("menu-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "Galery") {
-            document.getElementById("gallery-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-        if (item === "Contact") {
-            window.open("contact.html", "_blank");
-        }
-
+        scrollToSection(sectionMap[item]);
     });
 
     li.appendChild(a);
     desktopMenu.appendChild(li);
-
 });
 
 // MOBILE BUTTON
@@ -121,8 +116,7 @@ mobileMenu.style.maxHeight = "0px";
 
 // MOBILE ITEMS
 
-navItems.forEach(item => {
-
+navItems.forEach((item) => {
     const a = document.createElement("a");
 
     a.textContent = item;
@@ -132,56 +126,16 @@ navItems.forEach(item => {
         "block text-center py-4 border-b border-[#d6bfa6] hover:bg-orange-100 transition";
 
     a.addEventListener("click", (e) => {
-
         e.preventDefault();
 
-        if (item === "Home") {
-            document.getElementById("home-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "About") {
-            document.getElementById("about-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "Menu") {
-            document.getElementById("menu-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "Galery") {
-            document.getElementById("gallery-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-        if (item === "Promo") {
-            document.getElementById("promo-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
-        if (item === "Contact") {
-            window.open("contact.html", "_blank");
-        }
-
-        if (item === "Our Team") {
-            document.getElementById("team-section").scrollIntoView({
-                behavior: "smooth"
-            });
-        }
+        scrollToSection(sectionMap[item]);
 
         mobileMenu.style.maxHeight = "0px";
         menuBtn.innerHTML = "☰";
         menuOpen = false;
-
     });
 
     mobileMenu.appendChild(a);
-
 });
 
 // TOGGLE MENU
@@ -189,35 +143,25 @@ navItems.forEach(item => {
 let menuOpen = false;
 
 menuBtn.addEventListener("click", () => {
-
     menuOpen = !menuOpen;
 
     if (menuOpen) {
-
         mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
         menuBtn.innerHTML = "☰";
-
     } else {
-
         mobileMenu.style.maxHeight = "0px";
         menuBtn.innerHTML = "☰";
-
     }
-
 });
 
 // AUTO RESET
 
 window.addEventListener("resize", () => {
-
     if (window.innerWidth >= 768) {
-
         mobileMenu.style.maxHeight = "0px";
         menuBtn.innerHTML = "☰";
         menuOpen = false;
-
     }
-
 });
 
 // APPEND NAVBAR
@@ -263,18 +207,12 @@ heroTitle.className =
 heroTitle.innerHTML = "brewed to <br> perfection";
 
 const orderBtn = document.createElement("button");
-
 orderBtn.className =
     "bg-orange-500 hover:bg-orange-600 text-white px-6 md:px-8 py-3 rounded-lg font-semibold transition hover:scale-105";
-
 orderBtn.textContent = "Order Now";
 
 orderBtn.addEventListener("click", () => {
-
-    document.getElementById("menu-section").scrollIntoView({
-        behavior: "smooth"
-    });
-
+    scrollToSection("menu-section");
 });
 
 heroContent.appendChild(heroTitle);
@@ -292,8 +230,6 @@ body.appendChild(hero);
 // =================
 
 const aboutSection = document.createElement("section");
-aboutSection.id = "about";
-
 aboutSection.id = "about-section";
 aboutSection.className = "bg-[#ead7c3] py-20";
 
@@ -301,44 +237,37 @@ const aboutContainer = document.createElement("div");
 aboutContainer.className = "max-w-7xl mx-auto px-6";
 
 const aboutTitle = document.createElement("h2");
-aboutTitle.className =
-    "text-3xl md:text-4xl title-font text-center mb-16";
+aboutTitle.className = "text-3xl md:text-4xl title-font text-center mb-16";
 aboutTitle.textContent = "About";
 
 const aboutGrid = document.createElement("div");
-
-aboutGrid.className =
-    "grid grid-cols-1 md:grid-cols-2 gap-10 items-center";
+aboutGrid.className = "grid grid-cols-1 md:grid-cols-2 gap-10 items-center";
 
 const aboutText = document.createElement("div");
-
-aboutText.className =
-    "text-gray-800 leading-relaxed space-y-6";
+aboutText.className = "text-gray-800 leading-relaxed space-y-6";
 
 aboutText.innerHTML = `
 <p>
-<b>Sunset Brew</b> didirikan pada 20 October tahun 2025
-oleh <b>Febriany Renata</b> seorang CEO <b>San Digital Agency.</b>
+  <b>Sunset Brew</b> didirikan pada 20 October tahun 2025
+  oleh <b>Febriany Renata</b> seorang CEO <b>San Digital Agency.</b>
 </p>
 
 <p>
-Awalnya Sunset Brew dibangun sebagai tempat nongkrong dan ngopi secara online atau virtual.
+  Awalnya Sunset Brew dibangun sebagai tempat nongkrong dan ngopi secara online atau virtual.
 </p>
 
 <p>
-Kini berkembang menjadi usaha edukasi seperti IT Developer,
-Web Designer, dan bidang teknologi lainnya.
+  Kini berkembang menjadi usaha edukasi seperti IT Developer,
+  Web Designer, dan bidang teknologi lainnya.
 </p>
 `;
 
 const aboutImageContainer = document.createElement("div");
 
 const aboutImg = document.createElement("img");
-
-aboutImg.src =
-    "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085";
-
+aboutImg.src = "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085";
 aboutImg.className = "rounded-lg shadow-lg w-full";
+aboutImg.alt = "Coffee Shop";
 
 aboutImageContainer.appendChild(aboutImg);
 
@@ -370,35 +299,29 @@ menuTitle.textContent = "Menu";
 const menuGrid = document.createElement("div");
 menuGrid.className = "grid md:grid-cols-3 gap-10";
 
-const menuData = [
-
-    {
+const menuData = [{
         name: "Coffee Latte",
         image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-1.png"
     },
-
     {
         name: "Matcha Latte",
         image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-2.png"
     },
-
     {
         name: "Strawberry Cream Frappe",
         image: "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/menu-3.png"
     }
-
 ];
 
-menuData.forEach(item => {
-
+menuData.forEach((item) => {
     const card = document.createElement("div");
-
     card.className =
         "bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition";
 
     const img = document.createElement("img");
     img.src = item.image;
     img.className = "w-full h-[360px] object-cover";
+    img.alt = item.name;
 
     const title = document.createElement("h3");
     title.className = "text-xl font-semibold text-center py-5";
@@ -408,23 +331,18 @@ menuData.forEach(item => {
     card.appendChild(title);
 
     menuGrid.appendChild(card);
-
 });
 
 const menuBtnContainer = document.createElement("div");
 menuBtnContainer.className = "text-center mt-12";
 
 const ourMenuBtn = document.createElement("button");
-
 ourMenuBtn.className =
     "bg-[#6b3410] text-white px-8 py-3 rounded-full hover:bg-[#4a2207] transition";
-
 ourMenuBtn.textContent = "Our Menu";
 
 ourMenuBtn.addEventListener("click", () => {
-
     window.location.href = "menu.html";
-
 });
 
 menuBtnContainer.appendChild(ourMenuBtn);
@@ -438,6 +356,40 @@ menuSection.appendChild(menuContainer);
 body.appendChild(menuSection);
 
 // =================
+// PROMO SECTION
+// =================
+
+const promoSection = document.createElement("section");
+promoSection.id = "promo-section";
+promoSection.className = "bg-[#fff1df] py-20";
+
+const promoContainer = document.createElement("div");
+promoContainer.className = "max-w-7xl mx-auto px-6 text-center";
+
+const promoTitle = document.createElement("h2");
+promoTitle.className = "text-3xl md:text-4xl title-font mb-6";
+promoTitle.textContent = "Promo";
+
+const promoText = document.createElement("p");
+promoText.className =
+    "text-gray-800 max-w-2xl mx-auto mb-10 leading-relaxed";
+promoText.innerHTML =
+    "Nikmati promo spesial Sunset Brew hanya dengan 30.000,00.<br>untuk menu pilihan dan paket hemat terbaik.";
+
+const promoImg = document.createElement("img");
+promoImg.src =
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/promo.png";
+promoImg.alt = "Promo Sunset Brew";
+promoImg.className = "max-w-md w-full mx-auto rounded-lg shadow-md";
+
+promoContainer.appendChild(promoTitle);
+promoContainer.appendChild(promoText);
+promoContainer.appendChild(promoImg);
+
+promoSection.appendChild(promoContainer);
+body.appendChild(promoSection);
+
+// =================
 // GALLERY
 // =================
 
@@ -449,37 +401,30 @@ const galleryContainer = document.createElement("div");
 galleryContainer.className = "max-w-7xl mx-auto px-6";
 
 const galleryTitle = document.createElement("h2");
-
-galleryTitle.className =
-    "text-3xl md:text-4xl title-font text-center mb-16";
-
+galleryTitle.className = "text-3xl md:text-4xl title-font text-center mb-16";
 galleryTitle.textContent = "Galery";
 
 const galleryGrid = document.createElement("div");
-
 galleryGrid.className =
     "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6";
 
 const galleryImages = [
-
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-1.png",
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-2.png",
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-3.png",
     "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/gallery-4.jpg"
-
 ];
 
-galleryImages.forEach(src => {
-
+galleryImages.forEach((src, index) => {
     const img = document.createElement("img");
 
     img.src = src;
+    img.alt = `Gallery Sunset Brew ${index + 1}`;
 
     img.className =
         "w-full h-[220px] md:h-[260px] object-cover rounded-lg shadow-md hover:scale-105 transition";
 
     galleryGrid.appendChild(img);
-
 });
 
 galleryContainer.appendChild(galleryTitle);
@@ -488,6 +433,78 @@ galleryContainer.appendChild(galleryGrid);
 gallerySection.appendChild(galleryContainer);
 
 body.appendChild(gallerySection);
+
+// =================
+// CONTACT SECTION
+// =================
+
+const contactSection = document.createElement("section");
+contactSection.id = "contact-section";
+contactSection.className = "bg-[#fff1df] py-20";
+
+const contactContainer = document.createElement("div");
+contactContainer.className = "max-w-7xl mx-auto px-6 text-center";
+
+const contactTitle = document.createElement("h2");
+contactTitle.className = "text-3xl md:text-4xl title-font mb-6";
+contactTitle.textContent = "Contact";
+
+const contactText = document.createElement("p");
+contactText.className = "text-gray-800 mb-8";
+contactText.textContent =
+    "Hubungi kami untuk informasi pemesanan, kerja sama, atau pertanyaan seputar Sunset Brew.";
+
+const contactBtn = document.createElement("button");
+contactBtn.className =
+    "bg-[#6b3410] text-white px-8 py-3 rounded-full hover:bg-[#4a2207] transition";
+contactBtn.textContent = "Open Contact Page";
+
+contactBtn.addEventListener("click", () => {
+    window.location.href = "contact.html";
+});
+
+contactContainer.appendChild(contactTitle);
+contactContainer.appendChild(contactText);
+contactContainer.appendChild(contactBtn);
+
+contactSection.appendChild(contactContainer);
+body.appendChild(contactSection);
+
+// =================
+// OUR TEAM SECTION
+// =================
+
+const teamSection = document.createElement("section");
+teamSection.id = "team-section";
+teamSection.className = "bg-[#ead7c3] py-20";
+
+const teamContainer = document.createElement("div");
+teamContainer.className = "max-w-7xl mx-auto px-6 text-center";
+
+const teamTitle = document.createElement("h2");
+teamTitle.className = "text-3xl md:text-4xl title-font mb-6";
+teamTitle.textContent = "Our Team";
+
+const teamText = document.createElement("p");
+teamText.className = "text-gray-800 mb-8";
+teamText.textContent =
+    "Kenali tim kreatif di balik Sunset Brew yang membangun pengalaman digital dan coffee shop virtual ini.";
+
+const teamBtn = document.createElement("button");
+teamBtn.className =
+    "bg-[#6b3410] text-white px-8 py-3 rounded-full hover:bg-[#4a2207] transition";
+teamBtn.textContent = "Open Our Team Page";
+
+teamBtn.addEventListener("click", () => {
+    window.location.href = "team.html";
+});
+
+teamContainer.appendChild(teamTitle);
+teamContainer.appendChild(teamText);
+teamContainer.appendChild(teamBtn);
+
+teamSection.appendChild(teamContainer);
+body.appendChild(teamSection);
 
 // =================
 // PRE FOOTER
@@ -500,35 +517,33 @@ const preFooterContainer = document.createElement("div");
 preFooterContainer.className =
     "max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16 items-start";
 
-// =================
 // BRAND
-// =================
+
 const brandColumn = document.createElement("div");
 
 const brandLogo = document.createElement("div");
 brandLogo.className = "flex items-center gap-3 cursor-pointer";
 
 const logoImgFooter = document.createElement("img");
-logoImgFooter.src = "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
+logoImgFooter.src =
+    "https://raw.githubusercontent.com/FebrianyRenata02/sunset-brew25/refs/heads/main/logo.png";
 logoImgFooter.className = "w-10 h-10 object-contain";
+logoImgFooter.alt = "Sunset Brew Logo";
 
 const logoTextFooter = document.createElement("h2");
 logoTextFooter.className = "text-3xl title-font";
 logoTextFooter.textContent = "Sunset Brew";
 
 brandLogo.addEventListener("click", () => {
-    document.getElementById("home-section").scrollIntoView({
-        behavior: "smooth"
-    });
+    scrollToSection("home-section");
 });
 
 brandLogo.appendChild(logoImgFooter);
 brandLogo.appendChild(logoTextFooter);
 brandColumn.appendChild(brandLogo);
 
-// =================
 // LINKS
-// =================
+
 const linksColumn = document.createElement("div");
 
 const linksTitle = document.createElement("h3");
@@ -539,11 +554,16 @@ const linksList = document.createElement("ul");
 linksList.className = "space-y-3 text-gray-800";
 
 const footerLinks = [
-    "Home", "About", "Menu", "Promo", "Galery", "Contact", "Our Team"
+    "Home",
+    "About",
+    "Menu",
+    "Promo",
+    "Galery",
+    "Contact",
+    "Our Team"
 ];
 
-footerLinks.forEach(link => {
-
+footerLinks.forEach((link) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
 
@@ -553,23 +573,7 @@ footerLinks.forEach(link => {
 
     a.addEventListener("click", (e) => {
         e.preventDefault();
-
-        const mapSection = {
-            "Home": "home-section",
-            "About": "about-section",
-            "Menu": "menu-section",
-            "Promo": "promo-section",
-            "Galery": "gallery-section",
-            "Contact": "contact-section",
-            "Our Team": "team-section"
-        };
-
-        const target = document.getElementById(mapSection[link]);
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
+        scrollToSection(sectionMap[link]);
     });
 
     li.appendChild(a);
@@ -579,9 +583,8 @@ footerLinks.forEach(link => {
 linksColumn.appendChild(linksTitle);
 linksColumn.appendChild(linksList);
 
-// =================
 // LOCATION
-// =================
+
 const locationColumn = document.createElement("div");
 
 const locationTitle = document.createElement("h3");
@@ -591,13 +594,14 @@ locationTitle.textContent = "Location";
 const map = document.createElement("iframe");
 map.src = "https://www.google.com/maps?q=Bandung&output=embed";
 map.className = "w-[250px] h-[180px] rounded-md shadow-md border-0";
+map.loading = "lazy";
+map.referrerPolicy = "no-referrer-when-downgrade";
 
 locationColumn.appendChild(locationTitle);
 locationColumn.appendChild(map);
 
-// =================
 // APPEND PRE FOOTER
-// =================
+
 preFooterContainer.appendChild(brandColumn);
 preFooterContainer.appendChild(linksColumn);
 preFooterContainer.appendChild(locationColumn);
@@ -606,15 +610,14 @@ preFooter.appendChild(preFooterContainer);
 body.appendChild(preFooter);
 
 // =================
-// COPYRIGHT (FIX 🔥)
+// COPYRIGHT
 // =================
+
 const copyright = document.createElement("div");
 copyright.className = "copyright";
 
-copyright.textContent =
-    "© 2026 Sunset Brew. All Rights Reserved.";
+copyright.textContent = "© 2026 Sunset Brew. All Rights Reserved.";
 
-// 🔥 biar bisa diklik
 copyright.style.cursor = "pointer";
 
 copyright.addEventListener("click", () => {
