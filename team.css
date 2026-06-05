@@ -1,0 +1,535 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --brown-dark: #3a1600;
+  --brown-top: #6f330f;
+  --cream: #ead7c1;
+  --soft-cream: #fff1df;
+  --prefooter: #ffe3c3;
+  --team-orange: #ffd1a3;
+  --line: #f0b36f;
+  --text-dark: #24160f;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--soft-cream);
+  color: var(--text-dark);
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ================= TOP BAR ================= */
+
+.top-bar {
+  width: 100%;
+  height: 32px;
+  background-color: var(--brown-top);
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  width: 100%;
+  height: 72px;
+  background-color: var(--cream);
+  padding: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-box img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.logo-box h1 {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 23px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-family: "Berkshire Swash", cursive;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--brown-top);
+}
+
+/* ================= HERO OUR TEAM ================= */
+
+.hero-team {
+  width: 100%;
+  height: 430px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-team h2 {
+  color: var(--white);
+  font-family: "Berkshire Swash", cursive;
+  font-size: 68px;
+  font-weight: 500;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+}
+
+/* ================= TEAM SECTION ================= */
+
+.team-section {
+  width: 100%;
+  background-color: var(--soft-cream);
+  padding: 0 10% 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.owner-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -78px;
+  position: relative;
+  z-index: 2;
+}
+
+.manager-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.team-card {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.team-image {
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+
+/* ================= OWNER ================= */
+
+.owner-wrapper .team-image {
+  width: 200px;
+  height: 200px;
+}
+
+.owner-wrapper .team-card h3 {
+  margin-top: 58px;
+  min-width: 290px;
+  padding: 22px 28px;
+  background-color: var(--team-orange);
+  border-radius: 28px;
+  color: var(--text-dark);
+  font-family: "Berkshire Swash", cursive;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.owner-wrapper .team-card p {
+  margin-top: 34px;
+  color: var(--text-dark);
+  font-family: "Berkshire Swash", cursive;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+/* ================= MANAGER ================= */
+
+.manager-wrapper .team-image {
+  width: 128px;
+  height: 128px;
+}
+
+.manager-wrapper .team-card h3 {
+  margin-top: 48px;
+  min-width: 230px;
+  padding: 18px 24px;
+  background-color: var(--team-orange);
+  border-radius: 24px;
+  color: var(--text-dark);
+  font-family: "Berkshire Swash", cursive;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.manager-wrapper .team-card p {
+  margin-top: 28px;
+  color: var(--text-dark);
+  font-family: "Berkshire Swash", cursive;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: pre-line;
+}
+
+.connector-line {
+  width: 3px;
+  height: 85px;
+  background-color: var(--line);
+  margin: 22px 0;
+}
+
+/* ================= STAFF STRUCTURE ================= */
+
+.staff-wrapper {
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.horizontal-connector {
+  width: 78%;
+  height: 3px;
+  background-color: var(--line);
+}
+
+.staff-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.staff-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.staff-line {
+  width: 3px;
+  height: 52px;
+  background-color: var(--line);
+}
+
+.staff-box::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #1d120b;
+  border-radius: 50%;
+  position: absolute;
+  top: 48px;
+}
+
+.staff-box .team-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.staff-box .team-card h3 {
+  order: 1;
+  min-width: 150px;
+  margin-top: 0;
+  padding: 16px 22px;
+  background-color: var(--team-orange);
+  border-radius: 20px;
+  color: var(--text-dark);
+  font-family: "Berkshire Swash", cursive;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.staff-box .team-card p {
+  order: 2;
+  margin-top: 28px;
+  color: var(--text-dark);
+  font-family: "Berkshire Swash", cursive;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: pre-line;
+}
+
+.staff-box .team-image {
+  order: 3;
+  width: 110px;
+  height: 110px;
+  margin-top: 42px;
+}
+
+/* ================= PREFOOTER ================= */
+
+.footer-info {
+  width: 100%;
+  min-height: 330px;
+  background-color: var(--prefooter);
+  padding: 60px 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.footer-brand h2 {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.info-box h3 {
+  margin-bottom: 34px;
+  font-family: "Berkshire Swash", cursive;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.info-box ul {
+  list-style: none;
+}
+
+.info-box li {
+  margin-bottom: 16px;
+}
+
+.info-box a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.info-box a:hover {
+  color: var(--brown-top);
+}
+
+.location-map {
+  width: 100%;
+  max-width: 360px;
+  height: 155px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  width: 100%;
+  background-color: var(--brown-dark);
+  padding: 22px 10px;
+  text-align: center;
+}
+
+.footer p {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+  .navbar {
+    padding: 0 6%;
+  }
+
+  .nav-menu {
+    gap: 18px;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+  }
+
+  .logo-box h1 {
+    font-size: 21px;
+  }
+
+  .hero-team {
+    height: 380px;
+  }
+
+  .hero-team h2 {
+    font-size: 58px;
+  }
+
+  .footer-brand h2,
+  .info-box h3 {
+    font-size: 25px;
+  }
+
+  .footer p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    height: 30px;
+    font-size: 11px;
+  }
+
+  .navbar {
+    height: auto;
+    padding: 18px 5%;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .logo-box h1 {
+    font-size: 22px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+  }
+
+  .hero-team {
+    height: 250px;
+  }
+
+  .hero-team h2 {
+    font-size: 42px;
+  }
+
+  .team-section {
+    padding: 0 5% 60px;
+  }
+
+  .owner-wrapper {
+    margin-top: -60px;
+  }
+
+  .owner-wrapper .team-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .owner-wrapper .team-card h3 {
+    min-width: 240px;
+    font-size: 19px;
+    padding: 18px 22px;
+  }
+
+  .owner-wrapper .team-card p {
+    font-size: 14px;
+  }
+
+  .manager-wrapper .team-image {
+    width: 110px;
+    height: 110px;
+  }
+
+  .manager-wrapper .team-card h3 {
+    min-width: 200px;
+    font-size: 17px;
+  }
+
+  .staff-list {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .horizontal-connector,
+  .staff-line,
+  .staff-box::before {
+    display: none;
+  }
+
+  .staff-box .team-image {
+    margin-top: 30px;
+  }
+
+  .footer-info {
+    grid-template-columns: 1fr;
+    padding: 45px 8%;
+    gap: 38px;
+  }
+
+  .footer-brand h2,
+  .info-box h3 {
+    font-size: 24px;
+  }
+
+  .info-box a {
+    font-size: 14px;
+  }
+
+  .location-map {
+    max-width: 100%;
+  }
+
+  .footer p {
+    font-size: 14px;
+  }
+}
