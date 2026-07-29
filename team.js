@@ -21,8 +21,12 @@ class Navbar {
         const navbar = document.createElement("nav");
         navbar.className = "navbar";
 
-        const logoBox = document.createElement("div");
+        // Mengubah logoBox menjadi elemen link <a> menuju beranda (index.html)
+        const logoBox = document.createElement("a");
         logoBox.className = "logo-box";
+        logoBox.href = "index.html";
+        logoBox.style.textDecoration = "none";
+        logoBox.style.color = "inherit";
 
         const logo = document.createElement("img");
         logo.src = "logo.png";
@@ -178,8 +182,12 @@ class TeamSection {
 
 class FooterInfoSection {
     renderBrand() {
-        const brandBox = document.createElement("div");
+        // Mengubah footer brand menjadi elemen link <a> menuju beranda (index.html)
+        const brandBox = document.createElement("a");
         brandBox.className = "footer-brand";
+        brandBox.href = "index.html";
+        brandBox.style.textDecoration = "none";
+        brandBox.style.color = "inherit";
 
         const logo = document.createElement("img");
         logo.src = "logo.png";
