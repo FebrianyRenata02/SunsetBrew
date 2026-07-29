@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
 
+/* ================= RESET & BASE ================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -48,7 +50,7 @@ body {
   font-weight: 500;
 }
 
-/* ================= NAVBAR ================= */
+/* ================= NAVBAR & HAMBURGER ================= */
 
 .navbar {
   width: 100%;
@@ -58,6 +60,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 100;
 }
 
 .logo-box {
@@ -79,6 +83,41 @@ body {
   font-weight: 500;
 }
 
+/* Tombol Hamburger (Default Sembunyi di Desktop) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3.5px;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Animasi Hamburger ke 'X' saat Aktif */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9.2px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9.2px) rotate(-45deg);
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -90,9 +129,9 @@ body {
   text-decoration: none;
   color: var(--text-dark);
   font-family: "Berkshire Swash", cursive;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 500;
-  transition: 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-menu a:hover,
@@ -100,7 +139,7 @@ body {
   color: var(--brown-top);
 }
 
-/* ================= HERO OUR TEAM ================= */
+/* ================= HERO SECTION ================= */
 
 .hero-team {
   width: 100%;
@@ -160,8 +199,7 @@ body {
   background-color: var(--white);
 }
 
-/* ================= OWNER ================= */
-
+/* Owner */
 .owner-wrapper .team-image {
   width: 200px;
   height: 200px;
@@ -189,8 +227,7 @@ body {
   white-space: pre-line;
 }
 
-/* ================= MANAGER ================= */
-
+/* Manager */
 .manager-wrapper .team-image {
   width: 128px;
   height: 128px;
@@ -225,8 +262,7 @@ body {
   margin: 22px 0;
 }
 
-/* ================= STAFF STRUCTURE ================= */
-
+/* Staff Structure */
 .staff-wrapper {
   width: 100%;
   max-width: 980px;
@@ -390,8 +426,9 @@ body {
   font-weight: 600;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= MEDIA QUERIES ================= */
 
+/* Tablet & Moderate Laptop (<= 1100px) */
 @media (max-width: 1100px) {
   .navbar {
     padding: 0 6%;
@@ -399,10 +436,6 @@ body {
 
   .nav-menu {
     gap: 18px;
-  }
-
-  .nav-menu a {
-    font-size: 14px;
   }
 
   .logo-box h1 {
@@ -421,37 +454,51 @@ body {
   .info-box h3 {
     font-size: 25px;
   }
-
-  .footer p {
-    font-size: 14px;
-  }
 }
 
-@media (max-width: 768px) {
+/* Mobile & Small Screens (<= 900px) */
+@media (max-width: 900px) {
   .top-bar {
     height: 30px;
     font-size: 11px;
   }
 
   .navbar {
-    height: auto;
-    padding: 18px 5%;
-    flex-direction: column;
-    gap: 14px;
+    height: 70px;
+    padding: 0 5%;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .logo-box h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
+  /* Munculkan Hamburger Button */
+  .hamburger {
+    display: flex !important;
+  }
+
+  /* Nav Menu sebagai Dropdown Mobile */
   .nav-menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--cream);
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 18px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex !important;
   }
 
   .nav-menu a {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .hero-team {
@@ -459,7 +506,7 @@ body {
   }
 
   .hero-team h2 {
-    font-size: 42px;
+    font-size: 38px;
   }
 
   .team-section {
@@ -467,22 +514,24 @@ body {
   }
 
   .owner-wrapper {
-    margin-top: -60px;
+    margin-top: -50px;
   }
 
   .owner-wrapper .team-image {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
   }
 
   .owner-wrapper .team-card h3 {
-    min-width: 240px;
-    font-size: 19px;
-    padding: 18px 22px;
+    min-width: 220px;
+    font-size: 18px;
+    padding: 16px 20px;
+    margin-top: 30px;
   }
 
   .owner-wrapper .team-card p {
-    font-size: 14px;
+    font-size: 16px;
+    margin-top: 20px;
   }
 
   .manager-wrapper .team-image {
@@ -491,13 +540,21 @@ body {
   }
 
   .manager-wrapper .team-card h3 {
-    min-width: 200px;
-    font-size: 17px;
+    min-width: 190px;
+    font-size: 16px;
+    padding: 14px 18px;
+    margin-top: 30px;
   }
 
+  .manager-wrapper .team-card p {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+
+  /* Layout Staff Menjadi Vertical */
   .staff-list {
     grid-template-columns: 1fr;
-    gap: 45px;
+    gap: 40px;
   }
 
   .horizontal-connector,
@@ -507,29 +564,31 @@ body {
   }
 
   .staff-box .team-image {
-    margin-top: 30px;
+    margin-top: 24px;
+  }
+
+  .staff-box .team-card h3 {
+    font-size: 16px;
+  }
+
+  .staff-box .team-card p {
+    font-size: 16px;
+    margin-top: 18px;
   }
 
   .footer-info {
     grid-template-columns: 1fr;
-    padding: 45px 8%;
-    gap: 38px;
+    padding: 40px 6%;
+    gap: 32px;
   }
 
   .footer-brand h2,
   .info-box h3 {
-    font-size: 24px;
-  }
-
-  .info-box a {
-    font-size: 14px;
+    font-size: 22px;
+    margin-bottom: 20px;
   }
 
   .location-map {
     max-width: 100%;
-  }
-
-  .footer p {
-    font-size: 14px;
   }
 }
