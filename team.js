@@ -1,3 +1,4 @@
+/* ================= TOP BAR COMPONENT ================= */
 class TopBar {
     constructor(text) {
         this.text = text;
@@ -12,6 +13,7 @@ class TopBar {
     }
 }
 
+/* ================= NAVBAR COMPONENT ================= */
 class Navbar {
     constructor(menuItems) {
         this.menuItems = menuItems;
@@ -21,7 +23,7 @@ class Navbar {
         const navbar = document.createElement("nav");
         navbar.className = "navbar";
 
-        // Mengubah logoBox menjadi elemen link <a> menuju beranda (index.html)
+        // Logo & Nama Brand (Klik -> Beranda)
         const logoBox = document.createElement("a");
         logoBox.className = "logo-box";
         logoBox.href = "index.html";
@@ -38,6 +40,17 @@ class Navbar {
         logoBox.appendChild(logo);
         logoBox.appendChild(brandName);
 
+        // Tombol Hamburger untuk Tampilan Mobile
+        const hamburger = document.createElement("button");
+        hamburger.className = "hamburger";
+        hamburger.setAttribute("aria-label", "Toggle Menu");
+
+        for (let i = 0; i < 3; i++) {
+            const span = document.createElement("span");
+            hamburger.appendChild(span);
+        }
+
+        // List Navigasi Menu
         const menu = document.createElement("ul");
         menu.className = "nav-menu";
 
@@ -52,17 +65,31 @@ class Navbar {
                 link.classList.add("active");
             }
 
+            // Tutup menu saat salah satu link diklik di mobile
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                menu.classList.remove("active");
+            });
+
             list.appendChild(link);
             menu.appendChild(list);
         });
 
+        // Toggle menu saat hamburger diklik
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            menu.classList.toggle("active");
+        });
+
         navbar.appendChild(logoBox);
+        navbar.appendChild(hamburger);
         navbar.appendChild(menu);
 
         return navbar;
     }
 }
 
+/* ================= HERO SECTION COMPONENT ================= */
 class HeroSection {
     constructor(title, backgroundImage) {
         this.title = title;
@@ -87,6 +114,7 @@ class HeroSection {
     }
 }
 
+/* ================= TEAM MEMBER COMPONENT ================= */
 class TeamMember {
     constructor(name, position, image) {
         this.name = name;
@@ -117,6 +145,7 @@ class TeamMember {
     }
 }
 
+/* ================= TEAM SECTION COMPONENT ================= */
 class TeamSection {
     constructor(members) {
         this.members = members;
@@ -125,14 +154,12 @@ class TeamSection {
     createVerticalLine() {
         const line = document.createElement("div");
         line.className = "connector-line";
-
         return line;
     }
 
     createHorizontalLine() {
         const line = document.createElement("div");
         line.className = "horizontal-connector";
-
         return line;
     }
 
@@ -140,14 +167,17 @@ class TeamSection {
         const section = document.createElement("section");
         section.className = "team-section";
 
+        // Owner Structure
         const ownerWrapper = document.createElement("div");
         ownerWrapper.className = "owner-wrapper";
         ownerWrapper.appendChild(this.members[0].createCard());
 
+        // Manager Structure
         const managerWrapper = document.createElement("div");
         managerWrapper.className = "manager-wrapper";
         managerWrapper.appendChild(this.members[1].createCard());
 
+        // Staff Structure
         const staffWrapper = document.createElement("div");
         staffWrapper.className = "staff-wrapper";
 
@@ -180,9 +210,13 @@ class TeamSection {
     }
 }
 
+/* ================= PREFOOTER SECTION COMPONENT ================= */
 class FooterInfoSection {
+    constructor(menuItems) {
+        this.menuItems = menuItems;
+    }
+
     renderBrand() {
-        // Mengubah footer brand menjadi elemen link <a> menuju beranda (index.html)
         const brandBox = document.createElement("a");
         brandBox.className = "footer-brand";
         brandBox.href = "index.html";
@@ -211,37 +245,7 @@ class FooterInfoSection {
 
         const list = document.createElement("ul");
 
-        const links = [{
-                name: "Home",
-                link: "index.html"
-            },
-            {
-                name: "About",
-                link: "#"
-            },
-            {
-                name: "Menu",
-                link: "menu.html"
-            },
-            {
-                name: "Promo",
-                link: "#"
-            },
-            {
-                name: "Galery",
-                link: "#"
-            },
-            {
-                name: "Contact",
-                link: "contact.html"
-            },
-            {
-                name: "Our Team",
-                link: "team.html"
-            },
-        ];
-
-        links.forEach((item) => {
+        this.menuItems.forEach((item) => {
             const li = document.createElement("li");
 
             const link = document.createElement("a");
@@ -289,13 +293,14 @@ class FooterInfoSection {
     }
 }
 
+/* ================= FOOTER COMPONENT ================= */
 class Footer {
     render() {
         const footer = document.createElement("footer");
         footer.className = "footer";
 
         const text = document.createElement("p");
-        text.textContent = "© 2025 Sunset Brew. All Rights Reserved.";
+        text.textContent = "© 2026 Sunset Brew. All Rights Reserved.";
 
         footer.appendChild(text);
 
@@ -303,17 +308,16 @@ class Footer {
     }
 }
 
+/* ================= MAIN APPLICATION ================= */
 class SunsetBrewTeamApp {
-    constructor(rootId) {
-        this.root = document.getElementById(rootId);
-
+    constructor() {
         this.menuItems = [{
                 name: "Home",
                 link: "index.html"
             },
             {
                 name: "About",
-                link: "#"
+                link: "index.html#about"
             },
             {
                 name: "Menu",
@@ -321,11 +325,11 @@ class SunsetBrewTeamApp {
             },
             {
                 name: "Promo",
-                link: "#"
+                link: "index.html#promo"
             },
             {
                 name: "Galery",
-                link: "#"
+                link: "index.html#galery"
             },
             {
                 name: "Contact",
@@ -367,25 +371,33 @@ class SunsetBrewTeamApp {
     }
 
     render() {
-        this.root.innerHTML = "";
+        let root = document.getElementById("app");
+        if (!root) {
+            root = document.createElement("div");
+            root.id = "app";
+            document.body.appendChild(root);
+        } else {
+            root.innerHTML = "";
+        }
 
         const topBar = new TopBar("The Best of Coffee Shop");
         const navbar = new Navbar(this.menuItems);
         const hero = new HeroSection("Our Team", "banner.png");
         const teamSection = new TeamSection(this.members);
-        const footerInfo = new FooterInfoSection();
+        const footerInfo = new FooterInfoSection(this.menuItems);
         const footer = new Footer();
 
-        this.root.appendChild(topBar.render());
-        this.root.appendChild(navbar.render());
-        this.root.appendChild(hero.render());
-        this.root.appendChild(teamSection.render());
-        this.root.appendChild(footerInfo.render());
-        this.root.appendChild(footer.render());
+        root.appendChild(topBar.render());
+        root.appendChild(navbar.render());
+        root.appendChild(hero.render());
+        root.appendChild(teamSection.render());
+        root.appendChild(footerInfo.render());
+        root.appendChild(footer.render());
     }
 }
 
+/* ================= INITIALIZE APP ================= */
 document.addEventListener("DOMContentLoaded", () => {
-    const app = new SunsetBrewTeamApp("app");
+    const app = new SunsetBrewTeamApp();
     app.render();
 });
