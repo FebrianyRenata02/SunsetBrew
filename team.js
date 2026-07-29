@@ -1,4 +1,6 @@
-/* ================= TOP BAR COMPONENT ================= */
+/* ==========================================================================
+   TOP BAR COMPONENT
+   ========================================================================== */
 class TopBar {
     constructor(text) {
         this.text = text;
@@ -13,7 +15,9 @@ class TopBar {
     }
 }
 
-/* ================= NAVBAR COMPONENT ================= */
+/* ==========================================================================
+   NAVBAR COMPONENT
+   ========================================================================== */
 class Navbar {
     constructor(menuItems) {
         this.menuItems = menuItems;
@@ -23,7 +27,7 @@ class Navbar {
         const navbar = document.createElement("nav");
         navbar.className = "navbar";
 
-        // Logo & Nama Brand (Klik -> Beranda)
+        // Logo & Brand Name
         const logoBox = document.createElement("a");
         logoBox.className = "logo-box";
         logoBox.href = "index.html";
@@ -40,17 +44,16 @@ class Navbar {
         logoBox.appendChild(logo);
         logoBox.appendChild(brandName);
 
-        // Tombol Hamburger untuk Tampilan Mobile
+        // Hamburger Button (Mobile Toggle)
         const hamburger = document.createElement("button");
         hamburger.className = "hamburger";
         hamburger.setAttribute("aria-label", "Toggle Menu");
 
         for (let i = 0; i < 3; i++) {
-            const span = document.createElement("span");
-            hamburger.appendChild(span);
+            hamburger.appendChild(document.createElement("span"));
         }
 
-        // List Navigasi Menu
+        // Navigation Menu
         const menu = document.createElement("ul");
         menu.className = "nav-menu";
 
@@ -65,7 +68,7 @@ class Navbar {
                 link.classList.add("active");
             }
 
-            // Tutup menu saat salah satu link diklik di mobile
+            // Close mobile menu when a link is clicked
             link.addEventListener("click", () => {
                 hamburger.classList.remove("active");
                 menu.classList.remove("active");
@@ -75,7 +78,7 @@ class Navbar {
             menu.appendChild(list);
         });
 
-        // Toggle menu saat hamburger diklik
+        // Toggle mobile menu event
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             menu.classList.toggle("active");
@@ -89,7 +92,9 @@ class Navbar {
     }
 }
 
-/* ================= HERO SECTION COMPONENT ================= */
+/* ==========================================================================
+   HERO SECTION COMPONENT
+   ========================================================================== */
 class HeroSection {
     constructor(title, backgroundImage) {
         this.title = title;
@@ -114,7 +119,9 @@ class HeroSection {
     }
 }
 
-/* ================= TEAM MEMBER COMPONENT ================= */
+/* ==========================================================================
+   TEAM MEMBER COMPONENT
+   ========================================================================== */
 class TeamMember {
     constructor(name, position, image) {
         this.name = name;
@@ -145,7 +152,9 @@ class TeamMember {
     }
 }
 
-/* ================= TEAM SECTION COMPONENT ================= */
+/* ==========================================================================
+   TEAM SECTION COMPONENT
+   ========================================================================== */
 class TeamSection {
     constructor(members) {
         this.members = members;
@@ -210,7 +219,9 @@ class TeamSection {
     }
 }
 
-/* ================= PREFOOTER SECTION COMPONENT ================= */
+/* ==========================================================================
+   PREFOOTER SECTION COMPONENT
+   ========================================================================== */
 class FooterInfoSection {
     constructor(menuItems) {
         this.menuItems = menuItems;
@@ -219,7 +230,7 @@ class FooterInfoSection {
     renderBrand() {
         const brandBox = document.createElement("a");
         brandBox.className = "footer-brand";
-        brandBox.href = "index.html";
+        brandBox.href = "index.html"; // Mengarahkan ke Beranda
         brandBox.style.textDecoration = "none";
         brandBox.style.color = "inherit";
 
@@ -293,7 +304,9 @@ class FooterInfoSection {
     }
 }
 
-/* ================= FOOTER COMPONENT ================= */
+/* ==========================================================================
+   FOOTER COMPONENT
+   ========================================================================== */
 class Footer {
     render() {
         const footer = document.createElement("footer");
@@ -308,7 +321,9 @@ class Footer {
     }
 }
 
-/* ================= MAIN APPLICATION ================= */
+/* ==========================================================================
+   MAIN APPLICATION CLASS
+   ========================================================================== */
 class SunsetBrewTeamApp {
     constructor() {
         this.menuItems = [{
@@ -337,7 +352,7 @@ class SunsetBrewTeamApp {
             },
             {
                 name: "Our Team",
-                link: "team.html"
+                link: "index.html"
             },
         ];
 
@@ -380,23 +395,22 @@ class SunsetBrewTeamApp {
             root.innerHTML = "";
         }
 
-        const topBar = new TopBar("The Best of Coffee Shop");
-        const navbar = new Navbar(this.menuItems);
-        const hero = new HeroSection("Our Team", "banner.png");
-        const teamSection = new TeamSection(this.members);
-        const footerInfo = new FooterInfoSection(this.menuItems);
-        const footer = new Footer();
+        const fragment = document.createDocumentFragment();
 
-        root.appendChild(topBar.render());
-        root.appendChild(navbar.render());
-        root.appendChild(hero.render());
-        root.appendChild(teamSection.render());
-        root.appendChild(footerInfo.render());
-        root.appendChild(footer.render());
+        fragment.appendChild(new TopBar("The Best of Coffee Shop").render());
+        fragment.appendChild(new Navbar(this.menuItems).render());
+        fragment.appendChild(new HeroSection("Our Team", "banner.png").render());
+        fragment.appendChild(new TeamSection(this.members).render());
+        fragment.appendChild(new FooterInfoSection(this.menuItems).render());
+        fragment.appendChild(new Footer().render());
+
+        root.appendChild(fragment);
     }
 }
 
-/* ================= INITIALIZE APP ================= */
+/* ==========================================================================
+   INITIALIZE APP
+   ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
     const app = new SunsetBrewTeamApp();
     app.render();
