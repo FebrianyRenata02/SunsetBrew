@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
 
-/* ================= RESET & BASE ================= */
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
 
 * {
   margin: 0;
@@ -36,7 +38,9 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= TOP BAR ================= */
+/* ==========================================================================
+   TOP BAR COMPONENT
+   ========================================================================== */
 
 .top-bar {
   width: 100%;
@@ -50,7 +54,9 @@ body {
   font-weight: 500;
 }
 
-/* ================= NAVBAR & HAMBURGER ================= */
+/* ==========================================================================
+   NAVBAR & HAMBURGER COMPONENT
+   ========================================================================== */
 
 .navbar {
   width: 100%;
@@ -68,6 +74,11 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.logo-box:hover {
+  opacity: 0.85;
 }
 
 .logo-box img {
@@ -83,7 +94,7 @@ body {
   font-weight: 500;
 }
 
-/* Tombol Hamburger (Default Sembunyi di Desktop) */
+/* Hamburger Button (Default: hidden on desktop) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -105,7 +116,7 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Animasi Hamburger ke 'X' saat Aktif */
+/* Hamburger Active State ('X' animation) */
 .hamburger.active span:nth-child(1) {
   transform: translateY(9.2px) rotate(45deg);
 }
@@ -139,7 +150,9 @@ body {
   color: var(--brown-top);
 }
 
-/* ================= HERO SECTION ================= */
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
 
 .hero-team {
   width: 100%;
@@ -159,7 +172,9 @@ body {
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
 }
 
-/* ================= TEAM SECTION ================= */
+/* ==========================================================================
+   TEAM SECTION
+   ========================================================================== */
 
 .team-section {
   width: 100%;
@@ -199,7 +214,7 @@ body {
   background-color: var(--white);
 }
 
-/* Owner */
+/* Owner Cards */
 .owner-wrapper .team-image {
   width: 200px;
   height: 200px;
@@ -227,7 +242,7 @@ body {
   white-space: pre-line;
 }
 
-/* Manager */
+/* Manager Cards */
 .manager-wrapper .team-image {
   width: 128px;
   height: 128px;
@@ -344,7 +359,9 @@ body {
   margin-top: 42px;
 }
 
-/* ================= PREFOOTER ================= */
+/* ==========================================================================
+   PREFOOTER SECTION
+   ========================================================================== */
 
 .footer-info {
   width: 100%;
@@ -361,6 +378,11 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-brand:hover {
+  opacity: 0.85;
 }
 
 .footer-brand img {
@@ -397,6 +419,7 @@ body {
   color: var(--text-dark);
   font-size: 15px;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .info-box a:hover {
@@ -411,7 +434,9 @@ body {
   border-radius: 8px;
 }
 
-/* ================= FOOTER ================= */
+/* ==========================================================================
+   FOOTER COMPONENT
+   ========================================================================== */
 
 .footer {
   width: 100%;
@@ -426,7 +451,9 @@ body {
   font-weight: 600;
 }
 
-/* ================= MEDIA QUERIES ================= */
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
 
 /* Tablet & Moderate Laptop (<= 1100px) */
 @media (max-width: 1100px) {
@@ -474,12 +501,12 @@ body {
     font-size: 20px;
   }
 
-  /* Munculkan Hamburger Button */
+  /* Show Hamburger Button */
   .hamburger {
     display: flex !important;
   }
 
-  /* Nav Menu sebagai Dropdown Mobile */
+  /* Nav Menu Dropdown Mobile */
   .nav-menu {
     position: absolute;
     top: 70px;
@@ -551,7 +578,7 @@ body {
     margin-top: 18px;
   }
 
-  /* Layout Staff Menjadi Vertical */
+  /* Vertical Staff Layout for Mobile */
   .staff-list {
     grid-template-columns: 1fr;
     gap: 40px;
