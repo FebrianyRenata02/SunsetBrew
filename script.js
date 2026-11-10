@@ -249,7 +249,7 @@ aboutText.className = "text-gray-800 leading-relaxed space-y-6";
 aboutText.innerHTML = `
 <p>
   <b>Sunset Brew</b> didirikan pada 20 October tahun 2025
-  oleh <b>Febriany Renata</b> seorang CEO <b>San Digital Agency.</b>
+  oleh <b>Febriany Renata</b> seorang CEO <b>SAN Global Digital.</b>
 </p>
 
 <p>
